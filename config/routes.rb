@@ -19,6 +19,13 @@ PassCet4::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  match '/renren' => 'percents#renren'
+
+   resources :percents do
+     collection do
+       get :renren,:check,:renren_url_generate
+     end
+   end
   # Sample resource route with options:
   #   resources :products do
   #     member do

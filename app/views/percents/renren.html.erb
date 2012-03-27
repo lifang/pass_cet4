@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <%= javascript_include_tag "application" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div class="wrap">
+      <img alt="gankao.co" src="/assets/760x580.png"></img>
+        <% unless params[:xn_sig_added]=="1" %>
+          <script type="text/javascript" src="/assets/renren.js"></script>
+          <div id="hidden_iframe" style="display:none;">
+            <script type="text/javascript">
+              var uiOpts = {
+                url : "http://graph.renren.com/oauth/authorize",
+                display : "iframe",
+                params : {"response_type":"token","client_id":"<%= @client_id %>"},
+                onSuccess: function(r){
+                  window.location = "<%= Constant::SERVER_PATH %>/percents/check?access_token="+escape(r.access_token);
+                }
+              };
+              var root_flag = 0;
+              Renren.ui(uiOpts);
+            </script>
+          </div>
+        <% else %>
+          <script type="text/javascript">
+            $(function(){
+              setTimeout(function(){
+                window.location.href = "http://graph.renren.com/oauth/authorize?display=iframe&response_type=token&client_id=<%= @client_id %>&redirect_uri=<%= Constant::SERVER_PATH %>/percents/renren_url_generate";
+              },1500)
+            })
+          </script>
+        <% end %>
+      <div class="foot"></div>
+    </div>
+  </body>
+</html>
