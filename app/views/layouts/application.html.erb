@@ -5,13 +5,17 @@
     <title>通过英语四级</title>
     <%= stylesheet_link_tag    "style" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "percents" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <div class="wrap">
       <div class="main">
-        <%= yield %>
+        <div class="m_explain">三个问题测试你通过英语四级的概率。</div>
+        <div class="m_box border_radius">
+          <%= yield %>
+        </div>
       </div>
       <div class="foot"></div>
     </div>

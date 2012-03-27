@@ -1,7 +1,5 @@
 # encoding: utf-8
 class PercentsController < ApplicationController
-
-
   #人人测试应用访问路径 http://apps.renren.com/passcet   ,注: localhost:3000启动项目
 
   @@renren_client_id = "185877"
@@ -24,6 +22,15 @@ class PercentsController < ApplicationController
     cookies[:access_token] = access_token
     user_info = renren_get_user(access_token,@@renren_secret_key)
     render :inline=>"#{user_info}"
+  end
+  
+  def create
+    total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
+    @message = Constant::SCORE_LEVEL[total_score]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 end
