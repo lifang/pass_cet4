@@ -12,4 +12,5 @@ module Constant
     9 => "犀利，您可以代替李阳冲出亚洲，走向世界啦！"
   }
 
+  SERVER_PATH ="http://127.0.0.1:3000"
 end

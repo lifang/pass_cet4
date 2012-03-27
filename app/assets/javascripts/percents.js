@@ -12,4 +12,16 @@ function check_message_form() {
         alert("请回答‘你学英语的态度’");
         return false;
     }
+    $.ajax({
+            async:true,
+            data:{
+                ability :$("#ability_ul input:checked").val(),
+                heart :$("#heart_ul input:checked").val(),
+                attitude :$("#heart_ul input:checked").val()
+            },
+            dataType:'script',
+            url:"/percents",
+            type:'post'
+        });
+        return false;
 }
