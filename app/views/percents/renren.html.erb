@@ -1,10 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <%= javascript_include_tag "application" %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
   <body>
     <div class="wrap">
-      <img alt="gankao.co" src="/assets/rails.png"></img>
+      <img alt="gankao.co" src="/assets/760x580.png"></img>
         <% unless params[:xn_sig_added]=="1" %>
           <script type="text/javascript" src="/assets/renren.js"></script>
           <div id="hidden_iframe" style="display:none;">
