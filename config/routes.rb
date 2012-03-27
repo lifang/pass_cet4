@@ -1,4 +1,10 @@
 PassCet4::Application.routes.draw do
+
+  resources :tencents do
+    collection do
+      
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
