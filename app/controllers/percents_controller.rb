@@ -26,4 +26,29 @@ class PercentsController < ApplicationController
     render :inline=>"#{user_info}"
   end
 
+
+
+  @@sina_app_key = "668934093"
+  @@sina_app_secret = "bce8d1dcd35f257d1b46fd36e99f50c8"
+
+  def sina
+    @app_key = @@sina_app_key
+    @app_secret = @@sina_app_secret
+    signed_request = params[:signed_request]
+    if signed_request
+      list = signed_request.split(".")
+      encoded_sig,pay_load =list[0],list[1]
+      base_str = Base64.decode64(pay_load)
+      base_str = base_str.split(",\"referer\"")[0]
+      base_str = base_str[-1]=="}" ? base_str : "#{base_str}}"
+      @data = JSON (base_str)
+      @login = false
+      if @data["user_id"] && @data["oauth_token"]
+        @login = true
+        cookies[:access_token] = @data["oauth_token"]
+        response = sina_get_user(cookies[:access_token],@data["user_id"])
+      end
+    end
+  end
+
 end

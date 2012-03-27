@@ -14,10 +14,13 @@ PassCet4::Application.routes.draw do
   #   resources :products
 
   match '/renren' => 'percents#renren'
+  match '/sina' => 'percents#sina'
 
    resources :percents do
      collection do
-       get :renren,:check,:renren_url_generate
+       get :check
+       get :renren,:renren_url_generate
+       get :sina
      end
    end
   # Sample resource route with options:
