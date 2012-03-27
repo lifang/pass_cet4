@@ -2,7 +2,7 @@ PassCet4::Application.routes.draw do
 
   resources :tencents do
     collection do
-      
+      get :qqzone_index
     end
   end
   # The priority is based upon order of creation:

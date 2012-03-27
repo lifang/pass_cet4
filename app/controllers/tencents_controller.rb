@@ -1,9 +1,13 @@
 # encoding: utf-8
-class TencentsController < ApllicationController
+class TencentsController < ApplicationController
   include TencentHelper
 
+
+  def index
+    
+  end
   
   def qqzone_request
-    redirect_to "#{TencentHelper::REQUEST_URL_QQ}?#{TencentHelper::REQUEST_ACCESS_TOKEN.map{|k,v|"#{k}=#{v}"}.join("&")}"
+    
   end
 end
