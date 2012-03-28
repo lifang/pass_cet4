@@ -24,11 +24,8 @@ PassCet4::Application.routes.draw do
    resources :percents do
      collection do
        get :renren,:check,:renren_url_generate
-<<<<<<< HEAD
        post :add_idol
-=======
        post :send_message
->>>>>>> 5013830210afffea90da1d9d67da682a5ac7c4ec
      end
    end
   # Sample resource route with options:
