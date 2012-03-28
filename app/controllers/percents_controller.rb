@@ -17,7 +17,7 @@ class PercentsController < ApplicationController
     render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check?'+pr;</script>"
   end
 
-  #人人登录之后的回调页面，取得用户信息
+  #人人登录之后的回调页面,记录access_token,跳转到测试页
   def check
     access_token = params["access_token"]
     cookies[:access_token] = access_token
