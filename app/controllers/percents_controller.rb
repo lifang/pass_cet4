@@ -33,4 +33,19 @@ class PercentsController < ApplicationController
     end
   end
 
+  def send_message
+    @return_message = ""
+    if params[:web] == "sina"
+      ret = sina_send_message(cookies[:access_token], params[:mesage])
+      @return_message = "微博发送失败，请重新尝试" if ret["error_code"]
+    elsif params[:web] == "renren"
+      ret = renren_send_message(cookies[:access_token], params[:mesage], @@renren_secret_key)
+      @return_message = "分享失败，请重新尝试" if ret[:error_code]    
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
 end

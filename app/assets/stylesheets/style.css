@@ -10,7 +10,7 @@ li { list-style: none;}
 	border-radius: 10px;
 }
 .wrap { background: url(/assets/wrap_bg.jpg) no-repeat center top; overflow: hidden;}
-.main { width: 794px; min-height: 400px; margin: 70px auto 0; position: relative;}
+.main { width: 760px; min-height: 400px; margin: 70px auto 0; position: relative;}
 .m_explain {
     width: 764px;
 	padding-left: 30px;
@@ -22,7 +22,7 @@ li { list-style: none;}
 	font-size: 24px;
 	color: #FFF;
 }
-.m_box { width: 718px; margin: 0 auto; padding: 100px 20px; background: #fafafa; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
+.m_box { width: 685px; margin: 0 auto; padding: 100px 20px; background: #fafafa; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
 .m_box h1 { margin-top: 30px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #0772a9; background: url(/assets/li.png) no-repeat 30px center;}
 .m_box ul { padding-left: 100px;}
 .m_box li { line-height: 32px; line-height: 32px; color: #666;}
@@ -34,6 +34,6 @@ li { list-style: none;}
 .fx_box { width: 520px; padding: 10px; margin: 0 auto;}
 .gz_weibo { float: left; margin-top: 20px;}
 .fs_btn_box { float: right;}
-.fs_btn { width: 179px; height:60px; border: none; background: url(/assets/fx_btn.png) no-repeat; cursor: pointer;}
+.fs_btn { width: 179px; padding-left: 10px; height:60px; line-height: 60px; border: none; background: url(/assets/fx_btn.png) no-repeat; cursor: pointer; text-align: left; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0;}
 
 .foot { background: url(/assets/foot_bg.png) no-repeat; height: 213px;}
