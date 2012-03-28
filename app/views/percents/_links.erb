@@ -1,4 +1,17 @@
 <div class="fx_box">
-  <div><center>发送成功！</center></div><br/>
-  <div>推荐您一个应用四六级的专业网站，O(∩_∩)O~：<a href="http://www.gankao.co">http://www.gankao.co</a></div>
+
+  <div class="m_text">
+    <div>发送成功！</div><br/>
+    <div>向您推荐一个备考英语四六级的专业网站 ：<a href="http://www.gankao.co" target="_blank">赶考网</a></div>
+  </div>
+
+  <div class="fx_box">
+    <% if params["web"]=="sina" %>
+      <a href="http://www.weibo.com" class="fh_a">回到新浪微博主页</a>
+    <% elsif params["web"]=="renren" %>
+      <a href="http://www.renren.com" class="fh_a">回到人人主页</a>
+    <% end %>
+  </div>
+
+
 </div>

@@ -27,12 +27,21 @@ class PercentsController < ApplicationController
   end
   
   def create
-    total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
-    @message = Constant::SCORE_LEVEL[total_score]
+    @total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
+    @message = Constant::SCORE_LEVEL[@total_score]
     respond_to do |format|
       format.html
       format.js
     end
+  end
+
+  def  renren_like
+    app_id = @@renren_client_id
+    redirect_to "http://widget.renren.com/dialog/friends?target_id=#{Constant::RENREN_ID}&app_id=#{app_id}&redirect_uri=#{Constant::SERVER_PATH}/percents/close_window"
+  end
+
+  def close_window
+    render :inline=>"<script>window.close();</script>"
   end
 
 
@@ -63,10 +72,11 @@ class PercentsController < ApplicationController
   def send_message
     @return_message = ""
     if params[:web] == "sina"
-      ret = sina_send_message(cookies[:access_token], params[:mesage])
+      ret = sina_send_message(cookies[:access_token], params[:message])
+      puts ret
       @return_message = "微博发送失败，请重新尝试" if ret["error_code"]
     elsif params[:web] == "renren"
-      ret = renren_send_message(cookies[:access_token], params[:mesage], @@renren_secret_key)
+      ret = renren_send_message(cookies[:access_token], params[:message], @@renren_secret_key)
       @return_message = "分享失败，请重新尝试" if ret[:error_code]    
     end
     respond_to do |format|

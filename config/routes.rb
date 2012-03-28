@@ -19,7 +19,7 @@ PassCet4::Application.routes.draw do
    resources :percents do
      collection do
        get :check
-       get :renren,:renren_url_generate
+       get :renren,:renren_url_generate,:renren_like,:close_window
        get :sina
        post :send_message
      end
