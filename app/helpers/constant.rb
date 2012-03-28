@@ -13,4 +13,8 @@ module Constant
   }
 
   SERVER_PATH ="http://127.0.0.1:3000"
+
+
+  #应用访问路径
+  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/ceshi_cet4"}
 end

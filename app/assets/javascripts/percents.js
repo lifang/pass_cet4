@@ -17,7 +17,8 @@ function check_message_form() {
             data:{
                 ability :$("#ability_ul input:checked").val(),
                 heart :$("#heart_ul input:checked").val(),
-                attitude :$("#heart_ul input:checked").val()
+                attitude :$("#heart_ul input:checked").val(),
+                web :$("#web").val()
             },
             dataType:'script',
             url:"/percents",

@@ -5,6 +5,7 @@ class PercentsController < ApplicationController
   @@renren_client_id = "185877"
   @@renren_secret_key = "a45567526a374dcb9c06412cb3c93d74"
 
+  
   #人人应用，嵌入首页
   def renren
     @client_id = @@renren_client_id
@@ -20,8 +21,8 @@ class PercentsController < ApplicationController
   def check
     access_token = params["access_token"]
     cookies[:access_token] = access_token
-    user_info = renren_get_user(access_token,@@renren_secret_key)
-    render :inline=>"#{user_info}"
+    #user_info = renren_get_user(access_token,@@renren_secret_key)
+    redirect_to "/percents?web=renren"
   end
   
   def create
