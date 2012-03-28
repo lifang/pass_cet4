@@ -1,20 +1,20 @@
 <div class="m_text">
-  <div>“<%= @message %>” </div>
-  <div>想知道你通过英语四级的机率吗？来这里就知道
-    <% if params[:web].nil? or params[:web] == "sina" %>http://apps.weibo.com/ceshi_cet4
-    <% elsif params[:web] == "renren" %>http://apps.renren.com/ceshi_cet4
+  <div>OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i}%" %> --“<%= @message %>”。。。  </div>
+  <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
+    <% if params[:web].nil? or params[:web] == "sina" %>http://apps.weibo.com/passcet
+    <% elsif params[:web] == "renren" %>http://apps.renren.com/passcet
     <% elsif params[:web] == "qq" %>http://apps.renren.com/ceshi_cet4
     <% end %>
   </div>
 </div>
 <div class="fx_box">
   <% if params[:web].nil? or params[:web] == "sina" %>
-    <div class="gz_weibo"><input name="" type="checkbox" value="" /> 关注赶考网新浪微博</div>
+    <div class="gz_weibo"> 关注赶考网新浪微博 </div>
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');" >分享到新浪微博</button>
     </div>
   <% elsif params[:web] == "renren" %>
-    <div class="gz_weibo"><input name="" type="checkbox" value="" /> 关注赶考网人人公共主页</div>
+    <div class="gz_weibo"> <a href="javascript:void(0)" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');"> 关注赶考网人人公共主页 </a></div>
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>

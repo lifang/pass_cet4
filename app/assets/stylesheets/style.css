@@ -1,7 +1,8 @@
 @charset "utf-8";
 * { padding: 0; margin: 0;}
-body { background: url(/assets/body_bg.jpg) repeat-x #FFF; font-family:"微软雅黑", "宋体", Arial;}
+body { background: url(/assets/body_bg.jpg) repeat-x #FFF; font-family:"寰蒋闆呴粦", "瀹嬩綋", Arial;}
 li { list-style: none;}
+a { text-decoration: none;}
 .border_radius {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -22,7 +23,7 @@ li { list-style: none;}
 	font-size: 24px;
 	color: #FFF;
 }
-.m_box { width: 685px; margin: 0 auto; padding: 100px 20px; background: #fafafa; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
+.m_box {  margin: 0 auto; padding: 100px 20px; background: #fafafa; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
 .m_box h1 { margin-top: 30px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #0772a9; background: url(/assets/li.png) no-repeat 30px center;}
 .m_box ul { padding-left: 100px;}
 .m_box li { line-height: 32px; line-height: 32px; color: #666;}
@@ -35,5 +36,7 @@ li { list-style: none;}
 .gz_weibo { float: left; margin-top: 20px;}
 .fs_btn_box { float: right;}
 .fs_btn { width: 179px; padding-left: 10px; height:60px; line-height: 60px; border: none; background: url(/assets/fx_btn.png) no-repeat; cursor: pointer; text-align: left; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0;}
+
+.fh_a { width: 169px; padding-right: 10px; margin: 0 auto; height: 60px; line-height: 60px; display: block; background: url(fh_a.png) no-repeat; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0; text-align: right;}
 
 .foot { background: url(/assets/foot_bg.png) no-repeat; height: 213px;}
