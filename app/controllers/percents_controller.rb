@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PercentsController < ApplicationController
+  include PercentsHelper
   #人人测试应用访问路径 http://apps.renren.com/passcet   ,注: localhost:3000启动项目
 
   @@renren_client_id = "185877"

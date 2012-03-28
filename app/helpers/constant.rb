@@ -13,4 +13,7 @@ module Constant
   }
 
   SERVER_PATH ="http://127.0.0.1:3000"
+  TENCENT_WEIBO_NAME="gankao2011"
+  APPID="100624519"
+  APPKEY="762046ca241dad7c636e5e2b0944f0b3"
 end
