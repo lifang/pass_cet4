@@ -14,15 +14,16 @@ class PercentsController < ApplicationController
 
   #人人oauth2,回调地址中的"#"，替换为"?"
   def renren_url_generate
-    render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check?'+pr;</script>"
+    render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check?web=renren&'+pr;</script>"
   end
 
   #人人登录之后的回调页面,记录access_token,跳转到测试页
   def check
     access_token = params["access_token"]
-    cookies[:access_token] = access_token
-    #user_info = renren_get_user(access_token,@@renren_secret_key)
-    redirect_to "/percents?web=renren"
+    web = params["web"]
+    cookies[:access_token] = access_token if access_token
+    puts " #{web}  --  #{cookies[:access_token]}  "
+    redirect_to "/percents?web=#{web}"
   end
   
   def create
@@ -54,9 +55,9 @@ class PercentsController < ApplicationController
       if @data["user_id"] && @data["oauth_token"]
         @login = true
         cookies[:access_token] = @data["oauth_token"]
-        response = sina_get_user(cookies[:access_token],@data["user_id"])
       end
     end
+    render :layout=>false
   end
 
 end

@@ -7,6 +7,16 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "percents" %>
     <%= csrf_meta_tags %>
+    <input type="hidden" id="web" value="<%= params["web"] %>"></input>
+    <% if params["web"]=="sina" %>
+      <style type="text/css">
+        .m_box{width:638px;}
+      </style>
+    <% elsif params["web"]=="renren" %>
+      <style type="text/css">
+        .m_box{width:718px;}
+      </style>
+    <% end %>
   </head>
 
   <body>
