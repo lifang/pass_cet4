@@ -1,0 +1,5 @@
+<% if @return_message != "" %>
+  alert("<%= @return_message %>");
+<% else %>
+  $('.m_box').html("<%= escape_javascript(render :partial => "/percents/links") %>");
+<% end %>

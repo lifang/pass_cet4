@@ -21,6 +21,7 @@ PassCet4::Application.routes.draw do
        get :check
        get :renren,:renren_url_generate
        get :sina
+       post :send_message
      end
    end
   # Sample resource route with options:
