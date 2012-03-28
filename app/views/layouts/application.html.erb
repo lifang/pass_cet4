@@ -17,12 +17,15 @@
         .m_box{width:718px;}
       </style>
     <% end %>
+    <% if params[:web] =~ /qq/ %>
+      <%= render :partial=>"/percents/qqzone_index" %>
+    <% end %>
   </head>
 
   <body>
     <div class="wrap">
       <div class="main">
-        <div class="m_explain">三个问题测试你通过英语四级的概率。</div>
+        <div class="m_explain">三个问题测试你通过英语四级的概率:</div>
         <div class="m_box border_radius">
           <%= yield %>
         </div>

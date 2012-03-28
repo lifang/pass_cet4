@@ -1,5 +1,6 @@
 # encoding: utf-8
 module Constant
+  
   SCORE_LEVEL = {0 => "亲，地球真心不合适你，听说火星木有四级。",
     1 => "可能英语认识你，你都不认识英语。",
     2 => "请你以后不要在别人面前说英文了，OK？",
@@ -14,11 +15,14 @@ module Constant
 
   SERVER_PATH ="http://127.0.0.1:3000"
 
-
   #应用访问路径
   APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/ceshi_cet4"}
 
   #人人公共主页id
   RENREN_ID = 600942099
 
+  TENCENT_WEIBO_NAME="gankao2011"
+  APPID="100624519"
+  APPKEY="762046ca241dad7c636e5e2b0944f0b3"
+  
 end
