@@ -31,7 +31,8 @@ module ApplicationHelper
   #
   #人人发送新鲜事
   def renren_send_message(access_token,message,secret_key)
-    query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',:method => 'share.share',:type=>"6",:url=>"http://www.gankao.co",:v => '1.0'}
+    query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',
+      :method => 'share.share',:type=>"6",:url=>"http://www.gankao.co",:v => '1.0'}
     request = renren_sig_request(query,secret_key)
     response =JSON renren_api(request)
   end
@@ -39,4 +40,21 @@ module ApplicationHelper
   #END -------人人API----------
 
 
+  #START ---------SINA-------------
+  #新浪微博主方法
+  def sina_api(request)
+    uri = URI.parse("https://api.weibo.com")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    response = http.request(request).body
+  end
+  #
+  #新浪微博发送微博
+  def sina_send_message(access_token,message)
+    request = Net::HTTP::Post.new("/2/statuses/update.json")
+    request.set_form_data({"access_token" =>access_token, "status" => message})
+    response =JSON sina_api(request)
+  end
+  #END ------------SINA------------
 end

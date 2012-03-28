@@ -1,5 +1,5 @@
 //检查是否都选择了
-function check_message_form() {
+function check_message_form(web_from) {
     if ($("#ability_ul input:checked").length <= 0) {
         alert("请回答‘你目前的英语能力’");
         return false;
@@ -20,7 +20,7 @@ function check_message_form() {
             attitude :$("#heart_ul input:checked").val()
         },
         dataType:'script',
-        url:"/percents",
+        url:"/percents?web=" + web_from,
         type:'post'
     });
     return false;
@@ -58,4 +58,18 @@ function iframe_height(height){
         // 可选。表示要调整的高度，不指定或指定为0则默认取当前窗口的实际高度。
         height : height
     });
+}
+
+function send_message(web_from) {
+    var message = $(".m_text div:first").html() + $(".m_text div:last").html();
+    $.ajax({
+        async:true,
+        data:{
+            message :message
+        },
+        dataType:'script',
+        url:"/percents/send_message?web=" + web_from,
+        type:'post'
+    });
+    return false;
 }
