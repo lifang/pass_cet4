@@ -15,7 +15,7 @@
                 display : "iframe",
                 params : {"response_type":"token","client_id":"<%= @client_id %>"},
                 onSuccess: function(r){
-                  window.location = "<%= Constant::SERVER_PATH %>/percents/check?access_token="+escape(r.access_token);
+                  window.location = "<%= Constant::SERVER_PATH %>/percents/check?web=renren&access_token="+escape(r.access_token);
                 }
               };
               var root_flag = 0;

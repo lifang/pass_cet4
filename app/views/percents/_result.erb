@@ -1,5 +1,5 @@
 <div class="m_text">
-  <div>OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i}%" %> --“<%= @message %>”。。。  </div>
+  <div>OMG，经过测试，我的英语四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 10}%" %> --“<%= @message %>”。。。  </div>
   <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
     <% if params[:web].nil? or params[:web] == "sina" %>http://apps.weibo.com/passcet
     <% elsif params[:web] == "renren" %>http://apps.renren.com/passcet
@@ -9,12 +9,12 @@
 </div>
 <div class="fx_box">
   <% if params[:web].nil? or params[:web] == "sina" %>
-    <div class="gz_weibo"> 关注赶考网新浪微博 </div>
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');" >分享到新浪微博</button>
     </div>
+    <div class="gz_weibo"> <a href="http://weibo.com/gankao2011" target="_blank">赶考网官方微博</a> &nbsp;&nbsp;&nbsp; <iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1642909335&style=1&btn=light&dpc=1"></iframe> </div>
   <% elsif params[:web] == "renren" %>
-    <div class="gz_weibo"> <a href="javascript:void(0)" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');"> 关注赶考网人人公共主页 </a></div>
+    <div class="gz_weibo"> <a href="javascript:void(0)" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');"> 关注赶考网 </a></div>
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>
@@ -25,3 +25,4 @@
     </div>
   <% end %>
 </div>
+
