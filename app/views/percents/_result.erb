@@ -12,12 +12,12 @@
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');" >分享到新浪微博</button>
     </div>
-    <div class="gz_weibo"> <a href="http://weibo.com/gankao2011" target="_blank">赶考网官方微博</a> &nbsp;&nbsp;&nbsp; <iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1642909335&style=1&btn=light&dpc=1"></iframe> </div>
+    <div class="gz_weibo"> <a href="http://weibo.com/gankao2011" class="logo_s" target="_blank">赶考网官方微博</a> &nbsp;&nbsp;&nbsp; <iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1642909335&style=1&btn=light&dpc=1"></iframe> </div>
   <% elsif params[:web] == "renren" %>
-    <div class="gz_weibo"> <a href="javascript:void(0)" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');"> 关注赶考网 </a></div>
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>
+    <div class="gz_weibo"><a href="http://page.renren.com/600942099" class="logo_s" target="_blank">赶考网公共主页 </a><a href="javascript:void(0)" class="logo_r" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');"> 关注 </a></div>
   <% elsif params[:web] == "qq" %>
     <script type="text/javascript">
       iframe_height(650);

@@ -35,10 +35,13 @@ a { text-decoration: none;}
 .m_text { width: 520px; padding: 10px; border: 1px #a4cfdd solid; background: #f0fcff; margin: 50px auto 10px; font-size: 20px; color:#0772a9; text-align: center;}
 .fx_box { width: 520px; padding: 10px; margin: 0 auto;}
 .gz_weibo { margin-top: 20px;}
-.gz_weibo a { padding: 0 10px 0 25px; display: block; height: 20px; line-height: 20px; font-size: 12px; border: 1px #CCCCCC solid; background: url(/assets/logo_s.png) no-repeat left center; color: #1582BD; float: left; font-family: "宋体";}
+.gz_weibo a { padding: 0 10px 0 25px; display: block; height: 20px; line-height: 20px; font-size: 12px; border: 1px #CCCCCC solid;  color: #1582BD; float: left; font-family: "宋体";}
 .gz_weibo iframe { float: left; margin-left: 10px;}
 .fs_btn_box { float: right;}
 .fs_btn { width: 179px; padding-left: 10px; height:60px; line-height: 60px; border: none; background: url(/assets/fx_btn.png) no-repeat; cursor: pointer; text-align: left; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0;}
+
+.logo_s { background: url(/assets/logo_s.png) no-repeat 3px center;}
+.logo_r { background: url(/assets/logo_r.png) no-repeat 3px center; margin-left: 10px;}
 
 .fh_a { width: 169px; padding-right: 10px; margin: 0 auto; height: 60px; line-height: 60px; display: block; background: url(/assets/fh_a.png) no-repeat; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0; text-align: right;}
 
