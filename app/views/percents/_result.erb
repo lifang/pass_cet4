@@ -3,7 +3,7 @@
   <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
     <% if params[:web].nil? or params[:web] == "sina" %>http://apps.weibo.com/passcet
     <% elsif params[:web] == "renren" %>http://apps.renren.com/passcet
-    <% elsif params[:web] == "qq" %>http://apps.renren.com/ceshi_cet4
+    <% elsif params[:web] == "qq" %>http://rc.qzone.qq.com/myhome/100624519
     <% end %>
   </div>
 </div>
@@ -19,10 +19,9 @@
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>
   <% elsif params[:web] == "qq" %>
-    <div class="gz_weibo"></div>
-    <div class="fs_btn_box">
-      <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">分享到QQ空间</button>
-    </div>
+    <script type="text/javascript">
+      iframe_height(650);
+    </script>
   <% end %>
 </div>
 
