@@ -18,10 +18,5 @@
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>
-  <% elsif params[:web] == "qq" %>
-    <div class="gz_weibo"></div>
-    <div class="fs_btn_box">
-      <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">分享到QQ空间</button>
-    </div>
   <% end %>
 </div>

@@ -12,22 +12,22 @@ function check_message_form(web_from) {
         alert("请回答‘你学英语的态度’");
         return false;
     }
-    if (web_from=="qq"){
-        $.ajax({
-            async:true,
-            data:{
-                ability :$("#ability_ul input:checked").val(),
-                heart :$("#heart_ul input:checked").val(),
-                attitude :$("#heart_ul input:checked").val(),
-                openid : openid,
-                openkey : openkey
-            },
-            dataType:'script',
-            url:"/percents/add_idol?web=" + web_from,
-            type:'post'
-        });
-        return false;
-    }else{
+//    if (web_from=="qq"){
+//        $.ajax({
+//            async:true,
+//            data:{
+//                ability :$("#ability_ul input:checked").val(),
+//                heart :$("#heart_ul input:checked").val(),
+//                attitude :$("#heart_ul input:checked").val(),
+//                openid : openid,
+//                openkey : openkey
+//            },
+//            dataType:'script',
+//            url:"/percents/add_idol?web=" + web_from,
+//            type:'post'
+//        });
+//        return false;
+//    }else{
         $.ajax({
             async:true,
             data:{
@@ -40,7 +40,7 @@ function check_message_form(web_from) {
             type:'post'
         });
         return false;
-    }
+//    }
 }
 
 function iframe_height(height){
