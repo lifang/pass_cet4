@@ -33,7 +33,7 @@ function check_message_form(web_from) {
             data:{
                 ability :$("#ability_ul input:checked").val(),
                 heart :$("#heart_ul input:checked").val(),
-                attitude :$("#heart_ul input:checked").val()
+                attitude :$("#attritude_ul input:checked").val()
             },
             dataType:'script',
             url:"/percents?web=" + web_from,

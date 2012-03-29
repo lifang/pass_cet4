@@ -16,7 +16,7 @@ module Constant
   SERVER_PATH ="http://127.0.0.1:3000"
 
   #应用访问路径
-  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/ceshi_cet4"}
+  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/passcet","qq"=>"http://rc.qzone.qq.com/myhome/100624519"}
 
   #人人公共主页id
   RENREN_ID = 600942099
