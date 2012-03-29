@@ -18,5 +18,9 @@
     <div class="fs_btn_box">
       <button class="fs_btn" type="button" onclick="javascript:send_message('<%= params[:web] %>');">发送新鲜事</button>
     </div>
+  <% elsif params[:web] == "qq" %>
+    <script type="text/javascript">
+      iframe_height(650);
+    </script>
   <% end %>
 </div>
