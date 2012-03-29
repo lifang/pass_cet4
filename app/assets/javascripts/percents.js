@@ -43,7 +43,6 @@ function check_message_form(web_from) {
     }
 }
 
-
 function iframe_height(height){
     fusion2.canvas.setHeight
     ({

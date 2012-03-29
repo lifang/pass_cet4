@@ -20,10 +20,13 @@ PassCet4::Application.routes.draw do
   #   resources :products
 
   match '/renren' => 'percents#renren'
+  match '/sina' => 'percents#sina'
 
    resources :percents do
      collection do
-       get :renren,:check,:renren_url_generate
+       get :check
+       get :renren,:renren_url_generate,:renren_like,:close_window
+       get :sina
        post :add_idol
        post :send_message
      end
