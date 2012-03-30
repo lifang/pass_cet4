@@ -1,8 +1,14 @@
 <div class="fx_box">
-
   <div class="m_text">
-    <div>发送成功！</div><br/>
-    <div>向您推荐一个备考英语四六级的专业网站 ：<a href="http://www.gankao.co" target="_blank">赶考网</a></div>
+    <% if params["web"]=="qq" %>
+      <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i}%" %> --“<%= @message %>”。。。  </div>
+      <div style="display:none" id="link">想知道你通过英语四级的机率吗？赶紧来测试一下吧http://rc.qzone.qq.com/myhome/100624519
+      </div>
+    <% else %>
+      <div>发送成功！</div><br/>
+      <div>向您推荐一个备考英语四六级的专业网站 ：<a href="http://www.gankao.co" target="_blank">赶考网</a></div>
+    <% end %>
+
   </div>
 
   <div class="fx_box">
@@ -10,6 +16,9 @@
       <a href="http://www.weibo.com" target="_parent" class="fh_a">回到新浪微博主页</a>
     <% elsif params["web"]=="renren" %>
       <a href="http://www.renren.com" target="_parent" class="fh_a">回到人人主页</a>
+    <% elsif params["web"]=="qq" %>
+        <a href="http://www.gankao.co" target="_blank" class="fh_a">去赶考网看看</a>
+        <a class="fh_a" onclick="go_back()">回到个人中心</a>
     <% end %>
   </div>
 
