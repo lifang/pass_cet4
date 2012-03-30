@@ -56,5 +56,12 @@ module ApplicationHelper
     request.set_form_data({"access_token" =>access_token, "status" => message})
     response =JSON sina_api(request)
   end
+  #
+  #新浪微博关注赶考网官方微博
+  def sina_guanzhu(access_token,uid)
+    request = Net::HTTP::Post.new("/2/friendships/create.json")
+    request.set_form_data({"access_token" =>access_token, "uid" => uid})
+    response =JSON sina_api(request)
+  end
   #END ------------SINA------------
 end

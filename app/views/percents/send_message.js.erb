@@ -1,6 +1,5 @@
 <% if @return_message != "" %>
-  alert("<%= @return_message %>");
+  //alert("<%= @return_message %>");
 <% else %>
-  $('.m_box').html("<%= escape_javascript(render :partial => "/percents/links") %>");
   window.scrollTo(0, 0);
 <% end %>

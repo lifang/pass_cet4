@@ -70,6 +70,16 @@ class PercentsController < ApplicationController
     render :layout=>false
   end
 
+  #新浪关注
+  def guanzhu
+    ret = sina_guanzhu(cookies[:access_token],Constant::WEIBO_ID)
+    respond_to do |format|
+      format.json {
+        render :json=>""
+      }
+    end
+  end
+
   def send_message
     @return_message = ""
     if params[:web] == "sina"
