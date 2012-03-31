@@ -117,5 +117,4 @@ class PercentsController < ApplicationController
     end
   end
 
-
 end

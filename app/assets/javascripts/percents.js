@@ -53,7 +53,7 @@ function send_qq_share(){
     fusion2.dialog.share
     ({
         // 可选。分享应用的URL，点击该URL可以进入应用，必须是应用在平台内的地址。
-        url:"http://rc.qzone.qq.com/myhome/100624519?web=qq",
+        url:"http://rc.qzone.qq.com/myhome/100625006?web=qq",
 
         // 可选。默认展示在输入框里的分享理由。
         desc:message,
@@ -65,7 +65,7 @@ function send_qq_share(){
         title :"测测你的四级通过概率",
 
         // 可选。图片的URL。
-        pics :"http://localhost:3000/pass.png",
+        pics :"pass.gankao.co/pass.png",
 
         // 可选。透传参数，用于onSuccess回调时传入的参数，用于识别请求。
         context:"share",
@@ -94,19 +94,3 @@ function go_back(){
     });
 }
 
-function add_attention(){
-    $.ajax({
-        async:true,
-        dataType:'script',
-        url:"/percents/add_idol",
-        type:'post',
-        data:{
-            ability :$("#ability_ul input:checked").val(),
-            heart :$("#heart_ul input:checked").val(),
-            attitude :$("#heart_ul input:checked").val(),
-            openid : openid,
-            openkey : openkey
-        }
-    });
-    return false;
-}
