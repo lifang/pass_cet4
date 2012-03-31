@@ -1,11 +1,20 @@
 <div class="m_text">
-  <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 10}%" %> --“<%= @message %>”。。。  </div>
-  <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
-    <% if params[:web].nil? or params[:web] == "sina" %><%= Constant::APP_URL["sina"] %>
-    <% elsif params[:web] == "renren" %><%= Constant::APP_URL["renren"] %>
-    <% elsif params[:web] == "qq" %><%= Constant::APP_URL["qq"] %>
-    <% end %>
-  </div>
+  <% if params["web"]=="qq" %>
+    <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i}%" %> --“<%= @message %>”。。。  </div>
+    <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
+    </div>
+    <script type="text/javascript">
+      iframe_height(800);
+      send_qq_share();
+    </script>
+  <% else %>
+    <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 10}%" %> --“<%= @message %>”。。。  </div>
+    <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
+      <% if params[:web].nil? or params[:web] == "sina" %><%= Constant::APP_URL["sina"] %>
+      <% elsif params[:web] == "renren" %><%= Constant::APP_URL["renren"] %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="fx_box">
   <% if params[:web].nil? or params[:web] == "sina" %>
@@ -18,40 +27,32 @@
       <a href="http://www.renren.com" target="_parent" class="fh_a">&lt;&lt;回到人人主页</a>
     </div>
     <div class="gz_weibo"><span><a href="javascript:void(0)" class="logo_r" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');">关注赶考网</a></span></div>
-  <% elsif params[:web] == "qq" %>
-    <script type="text/javascript">
-      iframe_height(650);
-    </script>
+  <% elsif params["web"]=="qq" %>
+    <div class="fs_btn_box">
+      <a href="#" class="fh_a" onclick="go_back()">&lt;&lt;返回个人中心</a>
+    </div>
+    <iframe src="http://follow.v.t.qq.com/index.php?c=follow&a=quick&name=gankao2011&style=2&t=1333089968647&f=1" marginwidth="0" marginheight="0"  allowtransparency="true" frameborder="0" height="38" scrolling="auto" width="191"></iframe>
+    <div class="gankao_w" style="bottom: 300px;"><a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<a href="http://www.gankao.co" target="_blank"><small>gankao.co</small></a></a></div>
   <% end %>
-
-  <script type="text/javascript">
-    //自动发送
-    $(function(){
-      send_message("<%= params[:web] %>");
-    });
-
-    function guanzhu(){
-      $.ajax({
-        type: "GET",
-        url: "/percents/guanzhu.json",
-        dataType: "json",
-        success : function(data){
-          $("#sina_guanzhu_link").html("已添加关注");
-        }
+  <% if params["web"]!="qq" %>
+    <script type="text/javascript">
+      //自动发送
+      $(function(){
+        send_message("<%= params[:web] %>");
       });
-    }
-  </script>
 
-  <!--
-<div class="fs_btn_box">
-  <a href="#" class="fh_a">&lt;&lt;返回首页</a>
+      function guanzhu(){
+        $.ajax({
+          type: "GET",
+          url: "/percents/guanzhu.json",
+          dataType: "json",
+          success : function(data){
+            $("#sina_guanzhu_link").html("已添加关注");
+          }
+        });
+      }
+    </script>
+    <div class="gankao_w"><a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<a href="http://www.gankao.co" target="_blank"><small>gankao.co</small></a></a></div>
+  <% end %>
 </div>
-<div class="gz_weibo">
-  <span><a href="http://weibo.com/gankao2011" target="_blank" class="logo_q">关注腾讯微博</a></span>
-</div>
-  -->
-
-</div>
-
-<div class="gankao_w"><a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>gankao.co</small></a></div>
 
