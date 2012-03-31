@@ -5,9 +5,9 @@ module Constant
     1 => "可能英语认识你，你都不认识英语。",
     2 => "请你以后不要在别人面前说英文了，OK？",
     3 => "知我者谓我心忧，不知我者谓我何求。教练，我想过四级…",
-    4 => "表着急，子息不强一下，保持好素质和队形，自备好干粮、饮水和小板凳也是能过滴。",
-    5 => "一步之遥，功败垂成。努力啊，亲！",
-    6 => "哟，亲，你蒙的运气比我想象中有一颗鼻屎那么点点好耶！",
+    4 => "一步之遥，功败垂成。努力啊，亲！",
+    5 => "哟，亲，你蒙的运气有那么一点点好耶！",
+    6 => "表着急，自强不息一下，保持好素质和队形，自备好干粮、饮水和小板凳也是能过滴。",
     7 => "四级考试对您来说小菜一碟，不刷分的话考虑一下六级吧…",
     8 => "小“考”怡情，英语四级对您也属于怡情的一种…",
     9 => "犀利，您可以代替李阳冲出亚洲，走向世界啦！"
@@ -16,10 +16,13 @@ module Constant
   SERVER_PATH ="http://127.0.0.1:3000"
 
   #应用访问路径
-  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/ceshi_cet4"}
+  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/passcet","qq"=>"http://rc.qzone.qq.com/myhome/100624519"}
 
   #人人公共主页id
   RENREN_ID = 600942099
+
+  #weibo账号id
+  WEIBO_ID = 2359288352
 
   TENCENT_WEIBO_NAME="gankao2011"
   APPID=100624519

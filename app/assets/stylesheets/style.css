@@ -1,42 +1,52 @@
 @charset "utf-8";
 * { padding: 0; margin: 0;}
-body { background: url(/assets/body_bg.jpg) repeat-x #FFF; font-family:"寰蒋闆呴粦", "瀹嬩綋", Arial;}
+body { background: url(/assets/foot_bg.png) no-repeat center bottom #eaf5f9; font-family:"微软雅黑", "宋体", Arial;}
 li { list-style: none;}
 a { text-decoration: none;}
 .border_radius {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
-	border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
 }
 .wrap { background: url(/assets/wrap_bg.jpg) no-repeat center top; overflow: hidden;}
-.main { width: 760px; min-height: 400px; margin: 70px auto 0; position: relative;}
+.main { width: 760px; margin: 70px auto 0; position: relative;height: 700px;}
 .m_explain {
     width: 764px;
-	padding-left: 30px;
-	height: 71px;
-	line-height: 60px;
-	position: absolute;
-	top: 30px;
-	background: url(/assets/m_explain_bg.png) no-repeat;
-	font-size: 24px;
-	color: #FFF;
+    padding-left: 30px;
+    height: 71px;
+    line-height: 60px;
+    position: absolute;
+    top: 30px;
+    background: url(/assets/m_explain_bg.png) no-repeat;
+    font-size: 24px;
+    color: #FFF;
 }
 .m_box {  margin: 0 auto; padding: 100px 20px; background: #fafafa; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
-.m_box h1 { margin-top: 30px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #0772a9; background: url(/assets/li.png) no-repeat 30px center;}
+.m_box h1 { margin-top: 20px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #0772a9; background: url(/assets/li.png) no-repeat 30px center;}
 .m_box ul { padding-left: 100px;}
-.m_box li { line-height: 32px; line-height: 32px; color: #666;}
+.m_box li { line-height: 26px; line-height: 26px; color: #666;}
 
 .m_btn_box { width: 160px; height: 45px; position: absolute; bottom: 24px; left: 314px;}
 .m_btn { width: 160px; height: 45px; border: none; background: url(/assets/m_btn.png) no-repeat; cursor: pointer;}
 
 .m_text { width: 520px; padding: 10px; border: 1px #a4cfdd solid; background: #f0fcff; margin: 50px auto 10px; font-size: 20px; color:#0772a9; text-align: center;}
-.fx_box { width: 520px; padding: 10px; margin: 0 auto;}
-.gz_weibo { float: left; margin-top: 20px;}
-.fs_btn_box { float: right;}
-.fs_btn { width: 179px; padding-left: 10px; height:60px; line-height: 60px; border: none; background: url(/assets/fx_btn.png) no-repeat; cursor: pointer; text-align: left; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0;}
+.fx_box { width: 520px; padding: 10px; margin: 0 auto; overflow: hidden;}
+.gz_weibo { float: left;}
+.gz_weibo span { width: 149px; height: 50px; display: block; background: url(/assets/weibo_bg.png) no-repeat;  float: left; margin: 0 5px; } 
+.gz_weibo a { color: #1582BD; height: 40px; line-height: 40px; display: block; padding-left: 45px; margin-top: 5px;}
 
-.fh_a { width: 169px; padding-right: 10px; margin: 0 auto; height: 60px; line-height: 60px; display: block; background: url(fh_a.png) no-repeat; color: #2586b4; font-size: 16px; font-weight: bold; text-shadow: 0 1px 0 #f0f0f0; text-align: right;}
+.logo_s { background: url(/assets/logo_sina.png) no-repeat 5px center;}
+.logo_r { background: url(/assets/logo_renren.png) no-repeat 5px center;}
+.logo_q { background: url(/assets/logo_qq.png) no-repeat 5px center;}
 
-.foot { background: url(/assets/foot_bg.png) no-repeat; height: 213px;}
+.gankao_w { height: 45px; position: absolute; bottom: 260px; right: 50px;}
+.logo_g { background: url(/assets/logo_s.png) no-repeat left center; padding-left: 20px; color: #333;}
+
+
+.fs_btn_box { float: right; margin-top: 6px;}
+.fs_btn_box a:hover { text-decoration: underline;}
+.fh_a { padding: 0 5px; height:24px; line-height: 24px; text-align: center; color: #F00; display: block; font-size: 14px; margin: 5px;}
+
+.foot { height: 20px;}

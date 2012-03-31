@@ -32,7 +32,7 @@ module ApplicationHelper
   #人人发送新鲜事
   def renren_send_message(access_token,message,secret_key)
     query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',
-      :method => 'share.share',:type=>"6",:url=>"http://www.gankao.co",:v => '1.0'}
+      :method => 'share.share',:type=>"6",:url=>"http://apps.renren.com/passcet",:v => '1.0'}
     request = renren_sig_request(query,secret_key)
     response =JSON renren_api(request)
   end
@@ -54,6 +54,13 @@ module ApplicationHelper
   def sina_send_message(access_token,message)
     request = Net::HTTP::Post.new("/2/statuses/update.json")
     request.set_form_data({"access_token" =>access_token, "status" => message})
+    response =JSON sina_api(request)
+  end
+  #
+  #新浪微博关注赶考网官方微博
+  def sina_guanzhu(access_token,uid)
+    request = Net::HTTP::Post.new("/2/friendships/create.json")
+    request.set_form_data({"access_token" =>access_token, "uid" => uid})
     response =JSON sina_api(request)
   end
   #END ------------SINA------------

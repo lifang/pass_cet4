@@ -12,22 +12,6 @@ function check_message_form(web_from) {
         alert("请回答‘你学英语的态度’");
         return false;
     }
-    //    if (web_from=="qq"){
-    //        $.ajax({
-    //            async:true,
-    //            data:{
-    //                ability :$("#ability_ul input:checked").val(),
-    //                heart :$("#heart_ul input:checked").val(),
-    //                attitude :$("#heart_ul input:checked").val(),
-    //                openid : openid,
-    //                openkey : openkey
-    //            },
-    //            dataType:'script',
-    //            url:"/percents/add_idol?web=" + web_from,
-    //            type:'post'
-    //        });
-    //        return false;
-    //    }else{
     $.ajax({
         async:true,
         data:{
@@ -40,7 +24,6 @@ function check_message_form(web_from) {
         type:'post'
     });
     return false;
-//    }
 }
 
 function iframe_height(height){
@@ -89,17 +72,14 @@ function send_qq_share(){
 
         // 可选。用户操作后的回调方法。
         onSuccess : function (opt) {
-            alert("Succeeded: " + opt.context);
         },
 
         // 可选。用户取消操作后的回调方法。
         onCancel : function () {
-            alert("Cancelled: " + opt.context);
         },
 
         // 可选。对话框关闭时的回调方法。
         onClose : function () {
-            alert("Closed")
         }
 
     });
@@ -112,4 +92,21 @@ function go_back(){
         // 可选。为true则在当前窗口打开，为false或不指定则在新窗口打开。
         self : true
     });
+}
+
+function add_attention(){
+    $.ajax({
+        async:true,
+        dataType:'script',
+        url:"/percents/add_idol",
+        type:'post',
+        data:{
+            ability :$("#ability_ul input:checked").val(),
+            heart :$("#heart_ul input:checked").val(),
+            attitude :$("#heart_ul input:checked").val(),
+            openid : openid,
+            openkey : openkey
+        }
+    });
+    return false;
 }
