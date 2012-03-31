@@ -1,6 +1,6 @@
 <div class="m_text">
   <% if params["web"]=="qq" %>
-    <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i}%" %> --“<%= @message %>”。。。  </div>
+    <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
     <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
     </div>
     <script type="text/javascript">
@@ -8,7 +8,7 @@
       send_qq_share();
     </script>
   <% else %>
-    <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 10}%" %> --“<%= @message %>”。。。  </div>
+    <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
     <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧
       <% if params[:web].nil? or params[:web] == "sina" %><%= Constant::APP_URL["sina"] %>
       <% elsif params[:web] == "renren" %><%= Constant::APP_URL["renren"] %>
