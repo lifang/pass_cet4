@@ -2,6 +2,7 @@
   <% if params["web"]=="qq" %>
     <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
     <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
+      <input type="hidden" id="img_url" value="<%= Constant::IMG_URL %>"/>
     </div>
     <script type="text/javascript">
       send_qq_share();

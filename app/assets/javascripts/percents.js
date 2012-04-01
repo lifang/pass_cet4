@@ -59,7 +59,7 @@ function send_qq_share(){
         title :"测测你的四级通过概率",
 
         // 可选。图片的URL。
-        pics :"http://pass.gankao.co/pass.png",
+        pics :$("#img_url").val(),
 
         // 可选。透传参数，用于onSuccess回调时传入的参数，用于识别请求。
         context:"share",

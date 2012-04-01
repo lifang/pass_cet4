@@ -21,8 +21,8 @@ module Constant
   #人人公共主页id
   RENREN_ID = 600942099
 
-  TENCENT_WEIBO_NAME="gankao2011"
-  APPID=100624519
-  APPKEY="762046ca241dad7c636e5e2b0944f0b3"
+
+  #qq分享图片路径
+  IMG_URL="http://pass_cet4.gankao.co/pass.png"
   
 end
