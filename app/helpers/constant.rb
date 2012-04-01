@@ -23,7 +23,11 @@ module Constant
   #人人公共主页id
   RENREN_ID = 600942099
 
+  #weibo账号
+  WEIBO_ID = 2359288352
 
- 
+  TENCENT_WEIBO_NAME="gankao2011"
+  APPID=100624519
+  APPKEY="762046ca241dad7c636e5e2b0944f0b3"
   
 end
