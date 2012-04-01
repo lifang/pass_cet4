@@ -23,6 +23,6 @@ module Constant
 
 
   #qq分享图片路径
-  IMG_URL="http://pass_cet4.gankao.co/pass.png"
+  IMG_URL="http://pass_cet.gankao.co/pass.png"
   
 end
