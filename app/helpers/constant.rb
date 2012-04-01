@@ -14,6 +14,8 @@ module Constant
   }
 
   SERVER_PATH ="http://127.0.0.1:3000"
+  #qq分享图片路径
+  IMG_URL=SERVER_PATH+"/pass.png"
 
   #应用访问路径
   APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/passcet","qq"=>"http://rc.qzone.qq.com/myhome/100624519"}
@@ -22,7 +24,6 @@ module Constant
   RENREN_ID = 600942099
 
 
-  #qq分享图片路径
-  IMG_URL="http://pass_cet.gankao.co/pass.png"
+ 
   
 end
