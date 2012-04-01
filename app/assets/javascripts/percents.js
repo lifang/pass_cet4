@@ -26,13 +26,7 @@ function check_message_form(web_from) {
     return false;
 }
 
-function iframe_height(height){
-    fusion2.canvas.setHeight
-    ({
-        // 可选。表示要调整的高度，不指定或指定为0则默认取当前窗口的实际高度。
-        height : height
-    });
-}
+
 
 function send_message(web_from) {
     var message = $(".m_text div:first").html() + $(".m_text div:last").html();
@@ -65,7 +59,7 @@ function send_qq_share(){
         title :"测测你的四级通过概率",
 
         // 可选。图片的URL。
-        pics :"pass.gankao.co/pass.png",
+        pics :$("#img_url").val(),
 
         // 可选。透传参数，用于onSuccess回调时传入的参数，用于识别请求。
         context:"share",
