@@ -16,8 +16,7 @@
       <style type="text/css">
         .m_box{width:686px;}
       </style>
-    <% end %>
-    <% if params[:web] =~ /qq/ %>
+    <% else %>
       <%= render :partial=>"/percents/qqzone_index" %>
     <% end %>
   </head>

@@ -69,6 +69,7 @@ class PercentsController < ApplicationController
     end
     render :layout=>false
   end
+  
 
   #新浪关注
   def guanzhu
