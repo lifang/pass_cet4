@@ -30,6 +30,7 @@ function check_message_form(web_from) {
 
 function send_message(web_from) {
     var message = $(".m_text div:first").html() + $(".m_text div:last").html();
+    alert(message);
     $.ajax({
         async:true,
         data:{
