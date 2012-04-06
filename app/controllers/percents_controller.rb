@@ -98,4 +98,24 @@ class PercentsController < ApplicationController
   end
 
 
+  def add_idol
+    pars={
+      :appid=>Constant::APPID,:openid=>params[:openid].to_s,:openkey=>params[:openkey].to_s,:pf=>"qzone",:name=>"gankao2011"
+    }
+    url="http://119.147.19.43/v3/relation/add_idol"
+    url_params=pars.sort.map{|k,v|"#{k}=#{v}"}.join("&")
+    uri=URI.parse("#{url}?#{url_params}&sig=#{signature_params(Constant::APPID,url_params,url,"POST",Constant::APPKEY)}")
+    p "#{url}?#{url_params}&sig=#{signature_params(Constant::APPID,url_params,url,"POST",Constant::APPKEY)}"
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data(pars)
+    respond=http.request(request)
+    p respond.body
+    respond_to do |format|
+      format.json{
+        render :json=>"成功"
+      }
+    end
+  end
+
 end
