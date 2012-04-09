@@ -47,7 +47,7 @@ function send_qq_share(){
     fusion2.dialog.share
     ({
         // 可选。分享应用的URL，点击该URL可以进入应用，必须是应用在平台内的地址。
-        url:"http://rc.qzone.qq.com/myhome/100625006?web=qq",
+        url:"http://rc.qzone.qq.com/myhome/100625006",
 
         // 可选。默认展示在输入框里的分享理由。
         desc:message,
