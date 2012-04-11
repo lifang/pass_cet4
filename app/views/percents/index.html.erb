@@ -26,4 +26,6 @@
 <div class="m_btn_box">
   <button class="m_btn" type="button" onclick="javascript:check_message_form('<%= params[:web] %>');"></button>
 </div>
-<div class="gankao_w">如有问题，请访问<a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>www.gankao.co</small></a> © 2010-2012 欢迎加入官方交流群：227310092</div>
+<% if params[:web] != "sina" && params[:web] != "renren" %>
+  <div class="gankao_w">如有问题，请访问<a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>www.gankao.co</small></a> © 2010-2012 欢迎加入官方交流群：227310092</div>
+<% end %>
