@@ -1,7 +1,7 @@
 <div class="m_text">
   <% if params["web"].nil?||params["web"]=="" %>
     <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
-    <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
+    <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧
     </div>
     <input type="hidden" id="img_url" value="<%= Constant::IMG_URL %>"/>
     <script type="text/javascript">
@@ -29,7 +29,7 @@
     <div class="gz_weibo">
       <iframe src="http://follow.v.t.qq.com/index.php?c=follow&a=quick&name=gankao2011&style=2&t=1333089968647&f=1" marginwidth="0" marginheight="0"  allowtransparency="true" frameborder="0" height="38" scrolling="auto" width="191"></iframe>
     </div>
-  <% end %>
+  <% end %> 
 </div>
 <% if params[:web] != "sina" and params[:web] != "renren" %>
   <div class="gankao_w">如有问题，请访问<a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>www.gankao.co</small></a> © 2010-2012 欢迎加入官方交流群：227310092</div>
