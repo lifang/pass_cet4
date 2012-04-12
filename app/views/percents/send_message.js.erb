@@ -1,6 +1,8 @@
 <% if @return_message != "" %>
   //alert("<%= @return_message %>");
 <% else %>
-  $('.m_box').html("<%= escape_javascript(render :partial => "/percents/links") %>");
+  <% if @web !="sina" %>
+    $('.m_box').html("<%= escape_javascript(render :partial => "/percents/links") %>");
+  <% end %>
   window.scrollTo(0, 0);
 <% end %>
