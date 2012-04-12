@@ -83,11 +83,13 @@ class PercentsController < ApplicationController
 
   def send_message
     @return_message = ""
+    @web = ""
     if params[:web] == "sina"
+      @web = "sina"
       ret = sina_send_message(cookies[:access_token], params[:message])
-      puts ret
       @return_message = "微博发送失败，请重新尝试" if ret["error_code"]
     elsif params[:web] == "renren"
+      @web = "renren"
       ret = renren_send_message(cookies[:access_token], params[:message], @@renren_secret_key)
       @return_message = "分享失败，请重新尝试" if ret[:error_code]    
     end
