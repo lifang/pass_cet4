@@ -36,10 +36,7 @@
     </div>
     <div class="gz_weibo"><span><a href="javascript:void(0)" class="logo_s" id="sina_guanzhu_link" onclick="javascript:guanzhu();">关注赶考网</a></span></div>
   <% elsif params[:web] == "renren" %>
-    <div class="fs_btn_box">
-      <a href="http://www.renren.com" target="_parent" class="fh_a">&lt;&lt;回到人人主页</a>
-    </div>
-    <div class="gz_weibo"><span><a href="javascript:void(0)" class="logo_r" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');">关注赶考网</a></span></div>
+    <div class="gz_weibo"><span style="margin-left:180px;"><a href="javascript:void(0)" class="logo_r" onclick="javascript:send_message('<%= params[:web] %>');">分享到人人</a></span></div>
   <% else %>
     <div class="fs_btn_box">
       <a href="#" class="fh_a" onclick="javascript:go_back()">&lt;&lt;返回个人中心</a>
@@ -50,7 +47,7 @@
   <% end %>
 </div>
 
-<% if params[:web] == "sina" || params[:web] == "renren" %>
+<% if params[:web] == "sina" %>
   <script type="text/javascript">
     //自动发送
     $(function(){

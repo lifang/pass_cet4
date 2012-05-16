@@ -10,7 +10,7 @@ a { text-decoration: none;}
     -o-border-radius: 10px;
     border-radius: 10px;
 }
-.wrap { background: url(/assets/wrap_bg.jpg) no-repeat center top; overflow: hidden;}
+.wrap { background: url(bg01.jpg) repeat center top; overflow: hidden;}
 .main { width: 760px; margin: 70px auto 0; position: relative;height: 700px;}
 .m_explain {
     width: 764px;
@@ -19,19 +19,19 @@ a { text-decoration: none;}
     line-height: 60px;
     position: absolute;
     top: 30px;
-    background: url(/assets/m_explain_bg.png) no-repeat;
+    background: url(/assets/m_explain_bg00.png) no-repeat;
     font-size: 24px;
     color: #FFF;
 }
-.m_box { width: 685px; margin: 0 auto; padding: 100px 20px 30px; background: url(/assets/m_box_bg.png) repeat; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
-.m_box h1 { margin-top: 20px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #0772a9; background: url(/assets/li.png) no-repeat 30px center;}
+.m_box { width: 685px; margin: 0 auto; padding: 100px 20px 30px; background: url(zhi_bg.jpg) repeat; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
+.m_box h1 { margin-top: 20px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #79b709; background: url(/assets/li.png) no-repeat 30px center;}
 .m_box ul { padding-left: 100px;}
 .m_box li { line-height: 26px; line-height: 26px; color: #666;}
 
 .m_btn_box { width: 160px; height: 45px; margin: 20px auto 0;}
-.m_btn { width: 160px; height: 45px; border: none; background: url(/assets/m_btn.png) no-repeat; cursor: pointer;}
+.m_btn { width: 160px; height: 45px; border: none; background: url(/assets/m_btn00.png) no-repeat; cursor: pointer;}
 
-.m_text { width: 520px; padding: 10px; border: 1px #a4cfdd solid; background: #f0fcff; margin: 50px auto 10px; font-size: 20px; color:#0772a9; text-align: center;}
+.m_text { width: 520px; padding: 10px; border: 1px #a4cfdd solid; background: #f0fcff; margin: 50px auto 10px; font-size: 20px; color:#79b709; text-align: center;}
 .fx_box { width: 520px; padding: 10px; margin: 0 auto; overflow: hidden;}
 .gz_weibo { float: left;}
 .gz_weibo span { width: 149px; height: 50px; display: block; background: url(/assets/weibo_bg.png) no-repeat;  float: left; margin: 0 5px; } 

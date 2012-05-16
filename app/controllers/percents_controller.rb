@@ -3,9 +3,8 @@ class PercentsController < ApplicationController
   include PercentsHelper
   #人人测试应用访问路径 http://apps.renren.com/passcet   ,注: localhost:3000启动项目
 
-  @@renren_client_id = "185877"
-  @@renren_secret_key = "a45567526a374dcb9c06412cb3c93d74"
-
+  @@renren_client_id = "189847"
+  @@renren_secret_key = "f3556085271d4590a9adab188fb2db65"
 
   #人人应用，嵌入首页
   def renren
