@@ -1,4 +1,5 @@
 <div class="m_text">
+
   <% if params["web"].nil?||params["web"]=="" %>
     <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
     <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
@@ -8,7 +9,13 @@
       send_qq_share();
     </script>
   <% else %>
-    <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
+    <% if params[:web] == "renren"
+        score = 300 + @total_score*35 + 5 * ((1..7).to_a)[rand(7)]
+    %>
+      <div>OMG，经过测试，我的英语四级能考<%= score %>分 --“<%= @message %>”。。。  </div>
+    <% else %>
+      <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
+    <% end %>
     <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧。
       <% if params[:web].nil? or params[:web] == "sina" %><%= Constant::APP_URL["sina"] %>
       <% elsif params[:web] == "renren" %>四级备考就来赶考网 -- www.gankao.co

@@ -1,15 +1,11 @@
+<div class="m_text" style="width: 520px;">
+  <div>发送成功！</div><br/>
+</div>
+
 <div class="fx_box">
-
-  <div class="m_text">
-      <div>发送成功！</div><br/>
-  </div>
-
-  <div class="fx_box">
-    <% if params["web"]=="sina" %>
-      <a href="http://www.weibo.com" target="_parent" class="fh_a">回到新浪微博主页</a>
-    <% elsif params["web"]=="renren" %>
-      <a href="http://www.renren.com" target="_parent" class="fh_a">回到人人主页</a>
-    <% end %>
-  </div>
-  
+  <% if params["web"]=="sina" %>
+    <a href="http://www.weibo.com" target="_parent" class="fh_a">回到新浪微博主页</a>
+  <% elsif params["web"]=="renren" %>
+    <a href="http://www.renren.com" target="_parent" class="fh_a">回到人人主页</a>
+  <% end %>
 </div>
