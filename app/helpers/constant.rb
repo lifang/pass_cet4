@@ -18,7 +18,7 @@ module Constant
   IMG_URL=SERVER_PATH+"/pass.png"
 
   #应用访问路径
-  APP_URL = {"renren"=>"http://apps.renren.com/passcet","sina"=>"http://apps.weibo.com/passcet","qq"=>"http://rc.qzone.qq.com/myhome/100625006"}
+  APP_URL = {"renren"=>"http://apps.renren.com/wantcet","sina"=>"http://apps.weibo.com/passcet","qq"=>"http://rc.qzone.qq.com/myhome/100625006"}
 
   #人人公共主页id
   RENREN_ID = 600942099
