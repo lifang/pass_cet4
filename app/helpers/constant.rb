@@ -30,4 +30,5 @@ module Constant
   APPID=100624519
   APPKEY="762046ca241dad7c636e5e2b0944f0b3"
   
+  
 end
