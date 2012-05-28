@@ -28,7 +28,7 @@ function check_message_form(web_from) {
 
 
 
-function send_message(web_from) {
+function send_message(web_from,type) {
     var message = $(".m_text div:first").html() + $(".m_text div:last").html();
     $.ajax({
         async:true,
@@ -36,7 +36,7 @@ function send_message(web_from) {
             message :message
         },
         dataType:'script',
-        url:"/percents/send_message?web=" + web_from,
+        url:"/percents/send_message?web=" + web_from + "&type=" + type,
         type:'post'
     });
     return false;
