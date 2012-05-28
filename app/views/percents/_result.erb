@@ -1,8 +1,10 @@
 <div class="m_text">
 
+  <% if cookies[:six] && cookies[:six]=="6" ; @type_show = "六级" ; else ; @type_show = "四级" ; end %>
+
   <% if params["web"].nil?||params["web"]=="" %>
-    <div id="result">OMG，经过测试，我的应用四级通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
-    <div  id="link" style="display: none">想知道你通过英语四级的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
+    <div id="result">OMG，经过测试，我的英语<%= @type_show %>通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
+    <div  id="link" style="display: none">想知道你通过英语<%= @type_show %>的机率吗？赶紧来测试一下吧<%= Constant::APP_URL["qq"] %>
     </div>
     <input type="hidden" id="img_url" value="<%= Constant::IMG_URL %>"/>
     <script type="text/javascript">
@@ -20,11 +22,11 @@
         score = 425 + (@total_score - 7)*70 + ((1..70).to_a)[rand(70)]
       end
     %>
-      <div>OMG，经过测试，我的英语四级能考<%= score %>分 --“<%= @message %>”。。。  </div>
+      <div>OMG，经过测试，我的英语<%= @type_show %>能考<%= score %>分 --“<%= @message %>”。。。  </div>
     <% else %>
-      <div>OMG，经过测试，我的英语四级通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
+      <div>OMG，经过测试，我的英语<%= @type_show %>通过概率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
     <% end %>
-    <div>想知道你通过英语四级的机率吗？赶紧来测试一下吧。
+    <div>想知道你通过英语<%= @type_show %>的机率吗？赶紧来测试一下吧。
       <% if params[:web].nil? or params[:web] == "sina" %><%= Constant::APP_URL["sina"] %>
       <% end %>
     </div>
@@ -60,7 +62,7 @@
       <div class="tab_con">
         <div>你确定分享测试结果到人人网吗？</div>
       </div>
-      <div class="btn_box00"><button class="t_btn" onclick="javascript:send_message('<%= params[:web] %>');"> 确定 </button>   &nbsp;&nbsp;<button class="t_btn" onclick="javascript:$('#renren_confirm_share').hide();"> 取消 </button></div>
+      <div class="btn_box00"><button class="t_btn" onclick="javascript:send_message('<%= params[:web] %>','<%= cookies[:six]&&cookies[:six]=="6" ? cookies[:six] : "4" %>');"> 确定 </button>   &nbsp;&nbsp;<button class="t_btn" onclick="javascript:$('#renren_confirm_share').hide();"> 取消 </button></div>
     </div>
 
     <script type="text/javascript">
@@ -100,3 +102,5 @@
 <% else %>
   <div class="gankao_w">如有问题，请访问<a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>www.gankao.co</small></a> © 2010-2012 欢迎加入官方交流群：227310092</div>
 <% end %>
+
+<% cookies.delete(:six) unless cookies[:six].nil? %>

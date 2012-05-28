@@ -30,9 +30,10 @@ module ApplicationHelper
   end
   #
   #人人发送新鲜事
-  def renren_send_message(access_token,message,secret_key)
+  def renren_send_message(access_token,message,secret_key,type)
+    url = type=="4" ? "http://apps.renren.com/wantcet" : "http://apps.renren.com/wantsix"
     query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',
-      :method => 'share.share',:type=>"6",:url=>"http://apps.renren.com/wantcet",:v => '1.0'}
+      :method => 'share.share',:type=>"6",:url=>url,:v => '1.0'}
     request = renren_sig_request(query,secret_key)
     response =JSON renren_api(request)
   end

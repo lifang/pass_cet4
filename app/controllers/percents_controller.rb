@@ -8,6 +8,7 @@ class PercentsController < ApplicationController
 
   #人人应用，嵌入首页
   def renren
+    cookies.delete(:six) unless cookies[:six].nil?
     @client_id = @@renren_client_id
     render :layout=>false
   end
@@ -25,6 +26,22 @@ class PercentsController < ApplicationController
     puts " #{web}  --  #{cookies[:access_token]}  "
     redirect_to "/percents?web=#{web}"
   end
+
+  @@renren6_client_id = "196453"
+  @@renren6_secret_key = "a796bc292ddf457c84f097fd7ac6f579"
+
+  #人人六级应用
+  def renren6
+    cookies[:six] ={:value =>"6", :path => "/", :secure  => false}
+    @client_id = @@renren6_client_id
+    render :layout=>false
+  end
+
+  #六级回调
+  def renren6_url_generate
+    render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check?web=renren&'+pr;</script>"
+  end
+
   
   def create
     @total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
@@ -50,6 +67,7 @@ class PercentsController < ApplicationController
   @@sina_app_secret = "bce8d1dcd35f257d1b46fd36e99f50c8"
 
   def sina
+    cookies.delete(:six) unless cookies[:six].nil?
     @app_key = @@sina_app_key
     @app_secret = @@sina_app_secret
     signed_request = params[:signed_request]
@@ -89,7 +107,9 @@ class PercentsController < ApplicationController
       @return_message = "微博发送失败，请重新尝试" if ret["error_code"]
     elsif params[:web] == "renren"
       @web = "renren"
-      ret = renren_send_message(cookies[:access_token], params[:message], @@renren_secret_key)
+      @type = params[:type]
+      @secret_key = @type == "4" ? @@renren_secret_key : @@renren6_secret_key
+      ret = renren_send_message(cookies[:access_token], params[:message], @secret_key , @type)
       @return_message = "分享失败，请重新尝试" if ret[:error_code]    
     end
     respond_to do |format|
