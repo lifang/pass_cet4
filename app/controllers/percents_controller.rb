@@ -45,7 +45,7 @@ class PercentsController < ApplicationController
   
   def create
     @total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
-    @message = Constant::SCORE_LEVEL[@total_score]
+    @message = cookies[:six]&&cookies[:six]=="6" ? Constant::SCORE_LEVEL6[@total_score] : Constant::SCORE_LEVEL[@total_score]
     respond_to do |format|
       format.html
       format.js
