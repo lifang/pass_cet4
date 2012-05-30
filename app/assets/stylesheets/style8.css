@@ -1,0 +1,50 @@
+@charset "utf-8";
+* { padding: 0; margin: 0;}
+body { background: #eaf5f9; font-family:"微软雅黑", "宋体", Arial;}
+li { list-style: none;}
+a { text-decoration: none;}
+.border_radius {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}
+.wrap { background: url(/assets/16.gif) repeat center top; overflow: hidden;}
+.main { width: 760px; padding: 0 0 20px 0; margin: 70px auto 0; position: relative; z-index: 100;}
+.m_explain {
+    width: 764px;
+	padding-left: 30px;
+	height: 71px;
+	line-height: 60px;
+	position: absolute;
+	top: 30px;
+	background: url(/assets/m_explain_bg02.png) no-repeat;
+	font-size: 24px;
+	color: #FFF;
+}
+.m_box { width: 685px; margin: 0 auto; padding: 100px 20px 30px; background: #FFF url(/assets/_bkg.png) repeat; border: 1px #CCCCCC solid; text-shadow: 0 1px 0 #f0f0f0;}
+.m_box h1 { margin-top: 20px; padding-left: 70px; height: 40px; line-height: 40px; font-size: 22px; color: #9265bb; background: url(/assets/li.png) no-repeat 30px center;}
+.m_box ul { padding-left: 100px;}
+.m_box li { line-height: 26px; line-height: 26px; color: #666;}
+
+.m_btn_box { width: 160px; height: 45px; margin: 20px auto 0;}
+.m_btn { width: 160px; height: 45px; border: none; background: url(/assets/m_btn02.png) no-repeat; cursor: pointer;}
+
+.m_text { width: 520px; padding: 10px; border: 1px #a4cfdd solid; background: #f0fcff; margin: 50px auto 10px; font-size: 20px; color:#9265bb; text-align: center;}
+.fx_box { width: 520px; padding: 10px; margin: 0 auto; overflow: hidden;}
+.gz_weibo { float: left;}
+.gz_weibo span { width: 149px; height: 50px; display: block; background: url(/assets/weibo_bg.png) no-repeat;  float: left; margin: 0 5px; }
+.gz_weibo a { color: #1582BD; height: 40px; line-height: 40px; display: block; padding-left: 45px; margin-top: 5px;}
+
+.logo_s { background: url(/assets/logo_sina.png) no-repeat 5px center;}
+.logo_r { background: url(/assets/logo_renren.png) no-repeat 5px center;}
+.logo_q { background: url(/assets/logo_qq.png) no-repeat 5px center;}
+
+.gankao_w { font-size: 12px; margin-top: 30px; text-align: center;}
+.logo_g { background: url(/assets/logo_s.png) no-repeat left center; color: #333; padding: 3px 0 0 20px;}
+
+
+.fs_btn_box { float: right; margin-top: 6px;}
+.fs_btn_box a:hover { text-decoration: underline;}
+.fh_a { padding: 0 5px; height:24px; line-height: 24px; text-align: center; color: #F00; display: block; font-size: 14px; margin: 5px;}
