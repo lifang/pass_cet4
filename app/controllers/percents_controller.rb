@@ -37,31 +37,28 @@ class PercentsController < ApplicationController
     render :layout=>false
   end
 
-  #六级回调
-  def renren6_url_generate
-    render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check?web=renren&'+pr;</script>"
+
+  @@renren8_client_id = "196777"
+  @@renren8_secret_key = "79fb9cf508dd4751a1c3260ab57b43be"
+
+  #人人研究生应用
+  def renren8
+    cookies[:six] ={:value =>"8", :path => "/", :secure  => false}
+    @client_id = @@renren8_client_id
+    render :layout=>false
   end
+
+
 
   
   def create
     @total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
-    @message = cookies[:six]&&cookies[:six]=="6" ? Constant::SCORE_LEVEL6[@total_score] : Constant::SCORE_LEVEL[@total_score]
+    @message = cookies[:six]&&cookies[:six]=="8" ? Constant::SCORE_LEVEL8[@total_score] : (cookies[:six]&&cookies[:six]=="6" ? Constant::SCORE_LEVEL6[@total_score] : Constant::SCORE_LEVEL[@total_score])
     respond_to do |format|
       format.html
       format.js
     end
   end
-
-  def  renren_like
-    app_id = @@renren_client_id
-    redirect_to "http://widget.renren.com/dialog/friends?target_id=#{Constant::RENREN_ID}&app_id=#{app_id}&redirect_uri=#{Constant::SERVER_PATH}/percents/close_window"
-  end
-
-  def close_window
-    render :inline=>"<script>window.close();</script>"
-  end
-
-
 
   @@sina_app_key = "668934093"
   @@sina_app_secret = "bce8d1dcd35f257d1b46fd36e99f50c8"
@@ -108,7 +105,7 @@ class PercentsController < ApplicationController
     elsif params[:web] == "renren"
       @web = "renren"
       @type = params[:type]
-      @secret_key = @type == "4" ? @@renren_secret_key : @@renren6_secret_key
+      @secret_key = @type == "8" ? @@renren8_secret_key : (@type=="6" ? @@renren6_secret_key : @@renren_secret_key)
       ret = renren_send_message(cookies[:access_token], params[:message], @secret_key , @type)
       @return_message = "分享失败，请重新尝试" if ret[:error_code]    
     end

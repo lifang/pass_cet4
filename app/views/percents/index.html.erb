@@ -1,4 +1,3 @@
-<% if cookies[:six] && cookies[:six]=="6" ; @type_show = "六级" ; else ; @type_show = "四级" ; end %>
 <h1>你目前的英语能力：</h1>
 <ul id="ability_ul">
   <li><input name="ability" type="radio" value="0" /> How are you？Fine，think you，and you？</li>
@@ -7,7 +6,7 @@
   <li><input name="ability" type="radio" value="1" /> 可以当当家教，教育教育小朋友了</li>
 </ul>
 
-<h1>面对<%= @type_show %>考试，心情如何？</h1>
+<h1>面对<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% elsif cookies[:six] && cookies[:six]=="8" %>研究生英语<% else %>英语四级<% end %>考试，心情如何？</h1>
 <ul id="heart_ul">
   <li><input name="heart" type="radio" value="2" /> 书到用时方恨少</li>
   <li><input name="heart" type="radio" value="1" /> 披星戴月，跪求指导</li>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>通过英语四级</title>
+    <title>通过英语<% if cookies[:six] && cookies[:six]=="6" %>六级<% elsif cookies[:six] && cookies[:six]=="8" %>研究生英语<% else %>四级<% end %></title>
     <%= stylesheet_link_tag    "style" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "percents" %>
@@ -24,7 +24,7 @@
   <body>
     <div class="wrap" <% if cookies[:six] && cookies[:six]=="6" %> style="background: url(/assets/bg6.jpg) repeat center top;" <% end %> >
       <div class="main">
-        <div class="m_explain">三个问题测试你通过英语四级的概率:</div>
+        <div class="m_explain">三个问题测试你通过<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% elsif cookies[:six] && cookies[:six]=="8" %>研究生英语<% else %>英语四级<% end %>的概率:</div>
         <div class="m_box border_radius">
           <%= yield %>
         </div>

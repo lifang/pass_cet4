@@ -1,6 +1,6 @@
 <div class="m_text">
 
-  <% if cookies[:six] && cookies[:six]=="6" ; @type_show = "六级" ; else ; @type_show = "四级" ; end %>
+  <% if cookies[:six] && cookies[:six]=="6"; @type_show="英语六级" ; @type_num = "6" ; elsif cookies[:six] && cookies[:six]=="8"; @type_show="研究生英语" ; @type_num = "8" ; else ; @type_show="英语四级"; @type_num = "4" ; end %>
 
   <% if params["web"].nil?||params["web"]=="" %>
     <div id="result">OMG，经过测试，我的英语<%= @type_show %>通过率居然是<%= "#{(@total_score.to_f/10*100).to_i + 9}%" %> --“<%= @message %>”。。。  </div>
@@ -54,7 +54,6 @@
   <% elsif params[:web] == "renren" %>
     <div class="fs_btn_box">
       <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://widget.renren.com/plugin/followbutton?page_id=<%= Constant::RENREN_ID %>&color=0&model=0" style="width:76px;height:23px;" ></iframe>
-      <!--<a href="javascript:void(0)" class="fh_a" onclick="javascript:window.open('/percents/renren_like','_blank','height=400,width=980,left=200,top=150');">关注人人主页</a>-->
     </div>
     <div class="gz_weibo"><span><a href="javascript:void(0)" class="logo_r" onclick="javascript:generate_flash_div($('#renren_confirm_share'));">分享到人人</a></span></div>
     <div id="renren_confirm_share" class="rr_tab tab_box border_radius" style="display:none;">
@@ -62,7 +61,7 @@
       <div class="tab_con">
         <div>你确定分享测试结果到人人网吗？</div>
       </div>
-      <div class="btn_box00"><button class="t_btn" onclick="javascript:send_message('<%= params[:web] %>','<%= cookies[:six]&&cookies[:six]=="6" ? cookies[:six] : "4" %>');"> 确定 </button>   &nbsp;&nbsp;<button class="t_btn" onclick="javascript:$('#renren_confirm_share').hide();"> 取消 </button></div>
+      <div class="btn_box00"><button class="t_btn" onclick="javascript:send_message('<%= params[:web] %>','<%= @type_num %>');"> 确定 </button>   &nbsp;&nbsp;<button class="t_btn" onclick="javascript:$('#renren_confirm_share').hide();"> 取消 </button></div>
     </div>
 
     <script type="text/javascript">
