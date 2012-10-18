@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <h1>你目前的英语能力：</h1>
 <ul id="ability_ul">
   <li><input name="ability" type="radio" value="0" /> How are you？Fine，think you，and you？</li>
@@ -28,3 +29,7 @@
 <% if params[:web] != "sina" and params[:web] != "renren" %>
   <div class="gankao_w">如有问题，请访问<a href="http://www.gankao.co" target="_blank" class="logo_g">赶考网<small>www.gankao.co</small></a> © 2010-2012 欢迎加入官方交流群：227310092</div>
 <% end %>
+=======
+<h1 class="m_title">五道题测试一下你的<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>过关机率！</h1>
+<a href="/percents/questions?web=<%= params[:web] %>" class="b_btn">开始测试</a>
+>>>>>>> daa962026f24a9d98ab89a8f312710717268c979

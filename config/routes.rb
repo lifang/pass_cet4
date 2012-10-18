@@ -5,6 +5,8 @@ PassCet4::Application.routes.draw do
       get :qqzone_index
     end
   end
+
+  resources :images
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -26,7 +28,7 @@ PassCet4::Application.routes.draw do
 
    resources :percents do
      collection do
-       get :check,:guanzhu
+       get :check,:guanzhu, :questions, :result
        get :renren,:renren_url_generate,:renren_like,:close_window,:renren6,:renren8
        get :sina,:next_step,:next_upload
        post :add_idol

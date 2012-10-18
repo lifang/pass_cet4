@@ -1,0 +1,10 @@
+<% if cookies[:six] && cookies[:six]=="6"
+    @type_show = "六级"
+    @type_num = "6"
+  else
+    @type_show = "四级"
+    @type_num = "4"
+  end %>
+<h1 class="s_title">你的<%= @type_show %>过关机率为：</h1>
+<div class="end_box"><%= @score.to_s + "%" %></div>
+<a href="javascript:void(0)" onclick="javascript:sent_to_album('<%= @score.to_s + "%" %>', <%= @type_num %>)" class="up_btn">上传至相册</a>

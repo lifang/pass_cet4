@@ -12,14 +12,18 @@
     </script>
   <% else %>
     <% if params[:web] == "renren"
-      if @total_score == 6
-        score = 424 + ((1..15).to_a)[rand(15)]
-      elsif @total_score == 5
-        score = 425 - ((1..15).to_a)[rand(15)]
-      elsif @total_score < 5
-        score = 300 + @total_score*22 + ((1..22).to_a)[rand(22)]
+      if cookies[:six] && cookies[:six]=="8"
+        score = @total_score * 10 + ((0..9).to_a)[rand(10)]        
       else
-        score = 425 + (@total_score - 7)*70 + ((1..70).to_a)[rand(70)]
+        if @total_score == 6
+          score = 424 + ((1..15).to_a)[rand(15)]
+        elsif @total_score == 5
+          score = 425 - ((1..15).to_a)[rand(15)]
+        elsif @total_score < 5
+          score = 300 + @total_score*22 + ((1..22).to_a)[rand(22)]
+        else
+          score = 425 + (@total_score - 7)*70 + ((1..70).to_a)[rand(70)]
+        end
       end
     %>
       <div>OMG，经过测试，我的英语<%= @type_show %>能考<%= score %>分 --“<%= @message %>”。。。  </div>

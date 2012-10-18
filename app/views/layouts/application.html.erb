@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>通过英语<% if cookies[:six] && cookies[:six]=="6" %>六级<% elsif cookies[:six] && cookies[:six]=="8" %>研究生英语<% else %>四级<% end %></title>
+    <title>通过英语<% if cookies[:six] && cookies[:six]=="6" %>六级<% else %>四级<% end %>过关几率</title>
     <% if cookies[:six] && cookies[:six]=="6" %>
        <%= stylesheet_link_tag    "style6" %>
     <% else %>
@@ -25,15 +25,10 @@
     <% end %>
   </head>
 
-  <body>
-    <div class="wrap">
-      <div class="main">
-        <div class="m_explain">三个问题测试你通过<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% elsif cookies[:six] && cookies[:six]=="8" %>研究生英语<% else %>英语四级<% end %>的概率:</div>
-        <div class="m_box border_radius">
+<body>
+     <div class="wrap">          
           <%= yield %>
-        </div>
-      </div>
-      <div class="foot"></div>
-    </div>
-  </body>
+     </div>
+</body>
 </html>
+
