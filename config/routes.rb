@@ -25,6 +25,7 @@ PassCet4::Application.routes.draw do
   match '/renren6' => 'percents#renren6'
   match '/renren8' => 'percents#renren8'
   match '/sina' => 'percents#sina'
+  match '/apps_more' => 'percents#apps_more'
 
    resources :percents do
      collection do

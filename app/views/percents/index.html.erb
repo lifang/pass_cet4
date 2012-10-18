@@ -1,2 +1,13 @@
-<h1 class="m_title">五道题测试一下你的<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>过关机率！</h1>
-<a href="/percents/questions?web=<%= params[:web] %>" class="b_btn">开始测试</a>
+<div class="wrap i_bg">
+  <h1 class="m_title"><% if cookies[:six] && cookies[:six]=="6" %>六级<% else %>四级<% end %>过关率测试</h1>
+  <a href="/percents/questions?web=<%= params[:web] %>"  class="b_btn">开始测试</a>
+  <div class="recommend">
+    <a href="http://apps.renren.com/graduate_iv" class="rec_4"></a>
+    <a href="http://apps.renren.com/graduate_vi" class="rec_6"></a>
+    <a href="http://apps.renren.com/graduate_ky" class="rec_ky"></a>
+    <a href="http://apps.renren.com/kaoyantgl" class="rec_yc"></a>
+  </div>
+  <a href="/apps_more" class="more_btn">更多应用</a>
+</div>
+
+
