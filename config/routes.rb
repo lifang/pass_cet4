@@ -28,7 +28,7 @@ PassCet4::Application.routes.draw do
      collection do
        get :check,:guanzhu
        get :renren,:renren_url_generate,:renren_like,:close_window,:renren6,:renren8
-       get :sina
+       get :sina,:next_step,:next_upload
        post :add_idol
        post :send_message
      end
