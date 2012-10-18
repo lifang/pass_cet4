@@ -1,30 +1,41 @@
-//检查是否都选择了
-function check_message_form(web_from) {
-    if ($("#ability_ul input:checked").length <= 0) {
-        alert("请回答‘你目前的英语能力’");
-        return false;
-    }
-    if ($("#heart_ul input:checked").length <= 0) {
-        alert("请回答‘面对四级考试，心情如何’");
-        return false;
-    }
-    if ($("#attritude_ul input:checked").length <= 0) {
-        alert("请回答‘你学英语的态度’");
-        return false;
-    }
-    $.ajax({
-        async:true,
-        data:{
-            ability :$("#ability_ul input:checked").val(),
-            heart :$("#heart_ul input:checked").val(),
-            attitude :$("#heart_ul input:checked").val()
-        },
-        dataType:'script',
-        url:"/percents?web=" + web_from,
-        type:'post'
+//答题过程
+$(document).ready(function(){
+    var sum = 0;
+    $('li').bind("click",function(){
+        $(this).siblings().removeClass("dui");
+        $(this).toggleClass("dui");   
     });
-    return false;
-}
+    $(".next_btn").bind("click",function(){
+        var curr_p_div = $(this).parent().parent();
+        curr_p_div.hide();
+        var next_div = curr_p_div.next();
+        if (next_div.attr("class") == "main") {
+            curr_p_div.next().show();
+        } else {
+            if($("li.dui").length <= 0){
+                next_div.prev().show();
+                alert("请先回答问题");
+                return false;
+            }
+            if($("li.dui").length<5){
+                next_div.prev().show();
+                alert("请回答所有问题");
+                return false;
+            }
+            if ($("li.dui").length==5){
+                for (var i=0; i<5; i++) {
+                    sum += parseInt($($("li.dui")[i]).attr("value"));
+                }
+            }
+            window.location.href="/percents/result?sum="+sum;
+        }
+    });
+    $(".prev_btn").bind("click",function(){
+        var curr_p_div = $(this).parent().parent();
+        curr_p_div.hide();
+        curr_p_div.prev().show();
+    });
+})
 
 
 
@@ -88,3 +99,17 @@ function go_back(){
     });
 }
 
+//生成图片
+function sent_to_album(score, current_type) {
+    $.ajax({
+        async:true,
+        data:{
+            score :score,
+            current_type : current_type
+        },
+        dataType:'script',
+        url:"/images",
+        type:'post'
+    });
+    return false;
+}

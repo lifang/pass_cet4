@@ -76,6 +76,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    rmagick (2.13.1)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -100,5 +101,6 @@ DEPENDENCIES
   json (= 1.6.5)
   mysql2
   rails (= 3.1.2)
+  rmagick
   turn (= 0.8.2)
   uglifier (>= 1.0.3)

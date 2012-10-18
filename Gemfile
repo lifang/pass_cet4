@@ -7,6 +7,7 @@ gem 'rails', '3.1.2'
 
 gem 'mysql2'
 gem 'json', '1.6.5'
+gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.

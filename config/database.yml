@@ -13,9 +13,9 @@ development:
   encoding: utf8
   reconnect: false
   database: exam_app
-  pool: 1
+  pool: 3
   username: root
-  password: lifang
+  password: comdo2012
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

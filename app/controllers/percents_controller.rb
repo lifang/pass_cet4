@@ -48,18 +48,6 @@ class PercentsController < ApplicationController
     render :layout=>false
   end
 
-
-
-  
-  def create
-    @total_score = params["ability"].to_i + params["heart"].to_i + params["attitude"].to_i
-    @message = cookies[:six]&&cookies[:six]=="8" ? Constant::SCORE_LEVEL8[@total_score] : (cookies[:six]&&cookies[:six]=="6" ? Constant::SCORE_LEVEL6[@total_score] : Constant::SCORE_LEVEL[@total_score])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   @@sina_app_key = "668934093"
   @@sina_app_secret = "bce8d1dcd35f257d1b46fd36e99f50c8"
 
@@ -135,5 +123,19 @@ class PercentsController < ApplicationController
       }
     end
   end
+
+  #结果
+  def result
+    @sum = params[:sum].to_i
+    messages = (cookies[:six] && cookies[:six]=="6") ? Constant::SCORE_LEVEL6 : Constant::SCORE_LEVEL
+    if @sum == 4
+      @score = rand(9)
+      @message = messages[0]
+    else
+      @score = ((@sum-4)/2).to_i*10 + 10 + rand(9)
+      @message = messages[(@sum-4)/2.to_i + 1]
+    end
+  end
+
 
 end
