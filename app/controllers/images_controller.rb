@@ -4,6 +4,11 @@ class ImagesController < ApplicationController
   include PercentsHelper
   
   def create
+    if params[:current_type].to_i==4
+      ren_screct = "a796bc292ddf457c84f097fd7ac6f579"
+    else
+      ren_screct = "79fb9cf508dd4751a1c3260ab57b43be"
+    end
     rmagick = params[:score]
     bg = Magick::ImageList.new("#{Rails.root}/public/#{params[:current_type]}.jpg")
     i = Magick::ImageList.new
@@ -23,7 +28,7 @@ class ImagesController < ApplicationController
       result.write("#{Rails.root}/public/composite_layers.gif")
     rescue NotImplementedError
     end
-    renren_send_pic(cookies[:access_token],"#{Rails.root}/public/4.jpg")
+    renren_send_pic(cookies[:access_token],"#{Rails.root}/public/4.jpg",ren_screct)
   end
   
 end

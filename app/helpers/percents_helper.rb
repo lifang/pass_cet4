@@ -1,7 +1,6 @@
 # encoding: utf-8
 module PercentsHelper
-  
-
+ 
   #公共方法加密url及生成签名：
   def signature_params(key,sign,url,method,secret)
     signature="#{method}&#{url_encoding(url)}&#{CGI.escape(sign)}"
@@ -39,20 +38,20 @@ module PercentsHelper
   end
 
   #人人网签名
-  def sig_renren(query)
+  def sig_renren(query,api_serect)
     str=""
     query.sort.each{|key,value|str<<"#{key}=#{value}"}
-    str<<RENREN_API_SECRET
+    str << api_serect
     query[:sig]=Digest::MD5.hexdigest(str)
     return query
   end
 
   # 带图片微博
-  def renren_send_pic(access_token,img_url)
+  def renren_send_pic(access_token,img_url,api_serect)
     query={"access_token" =>access_token,:format => 'JSON', :method => 'photos.upload',:v => '1.0'}
     url = URI.parse("http://api.renren.com/restserver.do")
     File.open("#{Rails.root}/public/#{img_url}") do |jpg|
-      req = Net::HTTP::Post::Multipart.new url.path,sig_renren(query).merge!("upload" => UploadIO.new(jpg, "image/jpeg", "image.jpg"))
+      req = Net::HTTP::Post::Multipart.new url.path,sig_renren(query,api_serect).merge!("upload" => UploadIO.new(jpg, "image/jpeg", "image.jpg"))
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
