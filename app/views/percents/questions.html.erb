@@ -1,75 +1,76 @@
 <input id="que_web" value="<%= params[:web] %>" />
-<h1 class="n_title">五道题测试一下你的四级过关机率！</h1>
-<div class="main">
-  <div class="q_list">Q1:你目前的英语能力：</div>
-  <ul class="q_ul">
-    <li value="1">A.&nbsp;&nbsp;How are you？Fine，think you，and you？</li>
-    <li value="4">B.&nbsp;&nbsp;雅思托福，轻松自如 </li>
-    <li value="3">C.&nbsp;&nbsp;so easy,妈妈再也不用担心我的学习 </li>
-    <li value="2">D.&nbsp;&nbsp;可以当当家教，教育教育小朋友了</li>
-  </ul>
-  <div class="pn_btn">
-    <a href="javascript:void(0)" class="next_btn">下一题</a>
+<div class="wrap">
+  <h1 class="n_title">五道题测试一下你的四级过关机率！</h1>
+  <div class="main">
+    <div class="q_list">Q1:你目前的英语能力：</div>
+    <ul class="q_ul">
+      <li value="1">A.&nbsp;&nbsp;How are you？Fine，think you，and you？</li>
+      <li value="4">B.&nbsp;&nbsp;雅思托福，轻松自如 </li>
+      <li value="3">C.&nbsp;&nbsp;so easy,妈妈再也不用担心我的学习 </li>
+      <li value="2">D.&nbsp;&nbsp;可以当当家教，教育教育小朋友了</li>
+    </ul>
+    <div class="pn_btn">
+      <a href="javascript:void(0)" class="next_btn">下一题</a>
+    </div>
   </div>
-</div>
 
-<div class="main" style="display: none;">
-  <div class="q_list">Q2:面对<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>考试，心情如何？</div>
-  <ul class="q_ul">
-    <li value="3">A.&nbsp;&nbsp;书到用时方恨少</li>
-    <li value="2">B.&nbsp;&nbsp;披星戴月，跪求指导 </li>
-    <li value="1">C.&nbsp;&nbsp;让我穿越去清朝吧，从此不再受那考试苦… </li>
-    <li value="4">D.&nbsp;&nbsp;信手拈来，逢考必过</li>
-  </ul>
-  <div class="pn_btn">
-    <a href="javascript:void(0)" class="prev_btn">上一题</a>
-    <a href="javascript:void(0)" class="next_btn">下一题</a>
+  <div class="main" style="display: none;">
+    <div class="q_list">Q2:面对<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>考试，心情如何？</div>
+    <ul class="q_ul">
+      <li value="3">A.&nbsp;&nbsp;书到用时方恨少</li>
+      <li value="2">B.&nbsp;&nbsp;披星戴月，跪求指导 </li>
+      <li value="1">C.&nbsp;&nbsp;让我穿越去清朝吧，从此不再受那考试苦… </li>
+      <li value="4">D.&nbsp;&nbsp;信手拈来，逢考必过</li>
+    </ul>
+    <div class="pn_btn">
+      <a href="javascript:void(0)" class="prev_btn">上一题</a>
+      <a href="javascript:void(0)" class="next_btn">下一题</a>
+    </div>
   </div>
-</div>
 
-<div class="main" style="display: none;">
-  <div class="q_list">Q3:你学英语的态度？</div>
-  <ul class="q_ul">
-    <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
-    <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
-    <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
-    <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
-  </ul>
-  <div class="pn_btn">
-    <a href="javascript:void(0)" class="prev_btn">上一题</a>
-    <a href="javascript:void(0)" class="next_btn">下一题</a>
+  <div class="main" style="display: none;">
+    <div class="q_list">Q3:你学英语的态度？</div>
+    <ul class="q_ul">
+      <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
+      <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
+      <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
+      <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
+    </ul>
+    <div class="pn_btn">
+      <a href="javascript:void(0)" class="prev_btn">上一题</a>
+      <a href="javascript:void(0)" class="next_btn">下一题</a>
+    </div>
   </div>
-</div>
 
-<div class="main" style="display: none;">
-  <div class="q_list">Q4:你学英语的态度？</div>
-  <ul class="q_ul">
-    <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
-    <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
-    <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
-    <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
-  </ul>
-  <div class="pn_btn">
-    <a href="javascript:void(0)" class="prev_btn">上一题</a>
-    <a href="javascript:void(0)" class="next_btn">下一题</a>
+  <div class="main" style="display: none;">
+    <div class="q_list">Q4:你学英语的态度？</div>
+    <ul class="q_ul">
+      <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
+      <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
+      <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
+      <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
+    </ul>
+    <div class="pn_btn">
+      <a href="javascript:void(0)" class="prev_btn">上一题</a>
+      <a href="javascript:void(0)" class="next_btn">下一题</a>
+    </div>
   </div>
-</div>
 
-<div class="main" style="display: none;">
-  <div class="q_list">Q5:你学英语的态度？</div>
-  <ul class="q_ul">
-    <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
-    <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
-    <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
-    <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
-  </ul>
-  <div class="pn_btn">
-    <a href="javascript:void(0)" class="prev_btn">上一题</a>
-    <a href="javascript:void(0)" class="next_btn">下一题</a>
+  <div class="main" style="display: none;">
+    <div class="q_list">Q5:你学英语的态度？</div>
+    <ul class="q_ul">
+      <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
+      <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
+      <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
+      <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
+    </ul>
+    <div class="pn_btn">
+      <a href="javascript:void(0)" class="prev_btn">上一题</a>
+      <a href="javascript:void(0)" class="next_btn">下一题</a>
+    </div>
   </div>
+  <div style="display: none;"></div>
 </div>
-<div style="display: none;"></div>
-
 <!--<div class="m_btn_box">
   <button class="m_btn" type="button" onclick="javascript:check_message_form('<%#= params[:web] %>');"></button>
 </div>-->

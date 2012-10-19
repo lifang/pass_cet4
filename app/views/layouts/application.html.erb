@@ -4,9 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>通过英语<% if cookies[:six] && cookies[:six]=="6" %>六级<% else %>四级<% end %>过关几率</title>
     <% if cookies[:six] && cookies[:six]=="6" %>
-       <%= stylesheet_link_tag    "style6" %>
+      <%= stylesheet_link_tag    "style6" %>
     <% else %>
-       <%= stylesheet_link_tag    "style" %>
+      <%= stylesheet_link_tag    "style" %>
     <% end %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "percents" %>
@@ -25,10 +25,8 @@
     <% end %>
   </head>
 
-<body>
-     <div class="wrap">          
-          <%= yield %>
-     </div>
-</body>
+  <body>
+    <%= yield %>
+  </body>
 </html>
 
