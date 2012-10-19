@@ -27,7 +27,7 @@ $(document).ready(function(){
                     sum += parseInt($($("li.dui")[i]).attr("value"));
                 }
             }
-            window.location.href="/percents/result?sum="+sum;
+            window.location.href="/percents/result?sum="+sum+"&web="+$("#que_web").val();
         }
     });
     $(".prev_btn").bind("click",function(){

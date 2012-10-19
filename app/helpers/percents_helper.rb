@@ -47,22 +47,19 @@ module PercentsHelper
     return query
   end
 
- 
-
-  #人人获取用户信息
-  def renren_get_user(access_token)
-    query = {:access_token => access_token,:format => 'JSON',:method => 'xiaonei.users.getInfo',:v => '1.0'}
-    response=create_post_http("http://api.renren.com","/restserver.do",sig_renren(query))
-  end
-  #
-  #人人发送新鲜事
-  def renren_send_message(access_token,message,other_parms=nil)
-    other_parms={:type=>"6",:url=>"http://www.gankao.co"} if other_parms.nil?
-    query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',:method => 'share.share',:v => '1.0'}
-    query.merge!(other_parms)
-    response=create_post_http("http://api.renren.com","/restserver.do",sig_renren(query))
-    return response
+  # 带图片微博
+  def renren_send_pic(access_token,img_url)
+    query={"access_token" =>access_token,:format => 'JSON', :method => 'photos.upload',:v => '1.0'}
+    url = URI.parse("http://api.renren.com/restserver.do")
+    File.open("#{Rails.root}/public/#{img_url}") do |jpg|
+      req = Net::HTTP::Post::Multipart.new url.path,sig_renren(query).merge!("upload" => UploadIO.new(jpg, "image/jpeg", "image.jpg"))
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      info= http.request(req).body
+      return info
+    end
+   
   end
 
-  
 end

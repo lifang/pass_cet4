@@ -13,7 +13,7 @@ module Constant
     9 => "犀利，您可以代替李阳冲出亚洲，走向世界啦！"
   }
 
-  SERVER_PATH ="http://pass.gankao.co"
+  SERVER_PATH ="http://localhost:3000"
   #qq分享图片路径
   IMG_URL=SERVER_PATH+"/pass.png"
 

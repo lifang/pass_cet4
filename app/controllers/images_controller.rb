@@ -1,7 +1,8 @@
 # encoding: utf-8
 class ImagesController < ApplicationController
   require 'RMagick'
-
+  include PercentsHelper
+  
   def create
     rmagick = params[:score]
     bg = Magick::ImageList.new("#{Rails.root}/public/#{params[:current_type]}.jpg")
@@ -22,6 +23,7 @@ class ImagesController < ApplicationController
       result.write("#{Rails.root}/public/composite_layers.gif")
     rescue NotImplementedError
     end
+    renren_send_pic(cookies[:access_token],"#{Rails.root}/public/4.jpg")
   end
   
 end
