@@ -1,6 +1,6 @@
 # encoding: utf-8
 class ImagesController < ApplicationController
-  require 'RMagick'
+#  require 'RMagick'
   include PercentsHelper
   
   def create

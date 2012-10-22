@@ -50,7 +50,7 @@ module PercentsHelper
   def renren_send_pic(access_token,img_url,api_serect)
     query={"access_token" =>access_token,:format => 'JSON', :method => 'photos.upload',:v => '1.0'}
     url = URI.parse("http://api.renren.com/restserver.do")
-    File.open("#{Rails.root}/public/#{img_url}") do |jpg|
+    File.open(img_url) do |jpg|
       req = Net::HTTP::Post::Multipart.new url.path,sig_renren(query,api_serect).merge!("upload" => UploadIO.new(jpg, "image/jpeg", "image.jpg"))
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
