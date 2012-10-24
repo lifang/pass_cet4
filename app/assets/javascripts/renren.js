@@ -948,7 +948,7 @@
             ? window.outerHeight
             : (document.documentElement.clientHeight - 22), width = opts.width, height = opts.height, left = opts.left != null
             ? opts.left
-            : parseInt(screenX + ((outerWidth - width) / 2 ), 10), top = opts.top != null
+            : parseInt(screenX + ((outerWidth - width) / 2), 10), top = opts.top != null
             ? opts.top
             : parseInt(screenY + ((outerHeight - height) / 2.5), 10), features = ('width='
                 + width + ',height=' + height + ',left=' + left + ',top=' + top), w = window
@@ -1050,8 +1050,7 @@
                 - opts.height - 20)
             / 2.5);
             dstyle.left = (left > 0 ? left : 0) + 'px';
-            //dstyle.top = (top > 0 ? top : 0) + 'px';
-            dstyle.top = '100px';
+            dstyle.top = (top > 0 ? top : 0) + 'px';
             return dialog;
         },
 
@@ -1791,8 +1790,8 @@
         'authorize' : {
             display : 'page',
             style : {
-                width : 570,
-                height : 342
+                width : 480,
+                height : 450
             }
         },
         'request' : {

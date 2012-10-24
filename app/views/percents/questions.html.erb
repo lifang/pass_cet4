@@ -1,8 +1,62 @@
-<input id="que_web" value="<%= params[:web] %>" />
+<input id="que_web" value="<%= params[:web] %>" type="hidden" />
 <div class="wrap">
   <h1 class="n_title">五道题测试一下你的四级过关机率！</h1>
-  <div class="main">
-    <div class="q_list">Q1:你目前的英语能力：</div>
+  <% if cookies[:six] && cookies[:six]=="6" %>
+    <div class="main">
+      <div class="q_list">Q1:下面这个句子的意思是： What's far less understood by scientists, however, are the potentially harmful effects of goal-setting.</div>
+      <ul class="q_ul">
+        <li value="2">A.&nbsp;&nbsp;科学家还不理解目标设定是否有可能造成负面影响。</li>
+        <li value="3">B.&nbsp;&nbsp;现在还不知道目标设定对科学家的负面影响有多大。 </li>
+        <li value="1">C.&nbsp;&nbsp;科学家对目标设定的负面影响知之甚少。</li>
+        <li value="4">D.&nbsp;&nbsp;不过，科学家对目标设定的有害影响已经有了一定的了解。</li>
+      </ul>
+      <div class="pn_btn">
+        <a href="javascript:void(0)" class="next_btn">下一题</a>
+      </div>
+    </div>
+
+    <div class="main" style="display: none;">
+      <div class="q_list">Q2:以下10个词，你认识几个？ acute, ambiguous, naive, intrinsic, shrewd, threshold, repel, allege, subtle, feeble</div>
+      <ul class="q_ul">
+        <li value="3">A.&nbsp;&nbsp;0-2个</li>
+        <li value="1">B.&nbsp;&nbsp;3-5个</li>
+        <li value="2">C.&nbsp;&nbsp;6-8个</li>
+        <li value="4">D.&nbsp;&nbsp;9-10个</li>
+      </ul>
+      <div class="pn_btn">
+        <a href="javascript:void(0)" class="prev_btn">上一题</a>
+        <a href="javascript:void(0)" class="next_btn">下一题</a>
+      </div>
+    </div>
+  <% else %>
+    <div class="main">
+      <div class="q_list">Q1:下面这个句子的意思是： Today, given the job losses of the past year, fewer unhappy couples will risk starting separate households.</div>
+      <ul class="q_ul">
+        <li value="3">A.&nbsp;&nbsp;如果去年失业，那么今年发生感情问题的夫妻也未必有胆量分开了。</li>
+        <li value="1">B.&nbsp;&nbsp;因为去年失业潮，如今感情不合的夫妻也很少冒险分居了。 </li>
+        <li value="2">C.&nbsp;&nbsp;以去年的失业状况来看，今年冒险分家的夫妻会减少。 </li>
+        <li value="4">D.&nbsp;&nbsp;去年失业之后的夫妻，如今不敢冒险分家了。</li>
+      </ul>
+      <div class="pn_btn">
+        <a href="javascript:void(0)" class="next_btn">下一题</a>
+      </div>
+    </div>
+    <div class="main" style="display: none;">
+      <div class="q_list">Q2:以下10个词，你认识几个？ blast, breed, shift, suspicious, nuisance, catalog, approve, tide, tidy, ultimate</div>
+      <ul class="q_ul">
+        <li value="3">A.&nbsp;&nbsp;0-2个</li>
+        <li value="1">B.&nbsp;&nbsp;3-5个</li>
+        <li value="2">C.&nbsp;&nbsp;6-8个</li>
+        <li value="4">D.&nbsp;&nbsp;9-10个</li>
+      </ul>
+      <div class="pn_btn">
+        <a href="javascript:void(0)" class="prev_btn">上一题</a>
+        <a href="javascript:void(0)" class="next_btn">下一题</a>
+      </div>
+    </div>
+  <% end %>
+  <div class="main" style="display: none;">
+    <div class="q_list">Q3:你目前的英语能力：</div>
     <ul class="q_ul">
       <li value="1">A.&nbsp;&nbsp;How are you？Fine，think you，and you？</li>
       <li value="4">B.&nbsp;&nbsp;雅思托福，轻松自如 </li>
@@ -10,45 +64,18 @@
       <li value="2">D.&nbsp;&nbsp;可以当当家教，教育教育小朋友了</li>
     </ul>
     <div class="pn_btn">
+      <a href="javascript:void(0)" class="prev_btn">上一题</a>
       <a href="javascript:void(0)" class="next_btn">下一题</a>
     </div>
   </div>
 
   <div class="main" style="display: none;">
-    <div class="q_list">Q2:面对<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>考试，心情如何？</div>
+    <div class="q_list">Q4:面对<% if cookies[:six] && cookies[:six]=="6" %>英语六级<% else %>英语四级<% end %>考试，心情如何？</div>
     <ul class="q_ul">
       <li value="3">A.&nbsp;&nbsp;书到用时方恨少</li>
       <li value="2">B.&nbsp;&nbsp;披星戴月，跪求指导 </li>
       <li value="1">C.&nbsp;&nbsp;让我穿越去清朝吧，从此不再受那考试苦… </li>
       <li value="4">D.&nbsp;&nbsp;信手拈来，逢考必过</li>
-    </ul>
-    <div class="pn_btn">
-      <a href="javascript:void(0)" class="prev_btn">上一题</a>
-      <a href="javascript:void(0)" class="next_btn">下一题</a>
-    </div>
-  </div>
-
-  <div class="main" style="display: none;">
-    <div class="q_list">Q3:你学英语的态度？</div>
-    <ul class="q_ul">
-      <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
-      <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
-      <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
-      <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
-    </ul>
-    <div class="pn_btn">
-      <a href="javascript:void(0)" class="prev_btn">上一题</a>
-      <a href="javascript:void(0)" class="next_btn">下一题</a>
-    </div>
-  </div>
-
-  <div class="main" style="display: none;">
-    <div class="q_list">Q4:你学英语的态度？</div>
-    <ul class="q_ul">
-      <li value="3">A.&nbsp;&nbsp;三天打渔，两天晒网</li>
-      <li value="1">B.&nbsp;&nbsp;置之不理，听天由命 </li>
-      <li value="2">C.&nbsp;&nbsp;每个月总有那么几天想起它 </li>
-      <li value="4">D.&nbsp;&nbsp;悬梁刺股，日复一日</li>
     </ul>
     <div class="pn_btn">
       <a href="javascript:void(0)" class="prev_btn">上一题</a>

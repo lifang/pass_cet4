@@ -1,11 +1,11 @@
 <div class="wrap i_bg">
-  <h1 class="m_title"><% if cookies[:six] && cookies[:six]=="6" %>六级<% else %>四级<% end %>过关率测试</h1>
+  <% if cookies[:six] && cookies[:six]=="6" %><h1 class="six_title">六级过关率测试</h1><% else %><h1 class="m_title">四级过关率测试</h1><% end %>
   <a href="/percents/questions?web=<%= params[:web] %>"  class="b_btn">开始测试</a>
   <div class="recommend">
-    <a href="http://apps.renren.com/graduate_iv" class="rec_4"></a>
-    <a href="http://apps.renren.com/graduate_vi" class="rec_6"></a>
-    <a href="http://apps.renren.com/graduate_ky" class="rec_ky"></a>
-    <a href="http://apps.renren.com/kaoyantgl" class="rec_yc"></a>
+    <a href="http://apps.renren.com/graduate_iv" class="rec_4" target="_blank"></a>
+    <a href="http://apps.renren.com/graduate_vi" class="rec_6" target="_blank"></a>
+    <a href="http://apps.renren.com/graduate_ky" class="rec_ky" target="_blank"></a>
+    <a href="http://apps.renren.com/kaoyantgl" class="rec_yc" target="_blank"></a>
   </div>
   <a href="/apps_more" class="more_btn">更多应用</a>
 </div>

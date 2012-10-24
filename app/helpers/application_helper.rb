@@ -65,4 +65,19 @@ module ApplicationHelper
     response =JSON sina_api(request)
   end
   #END ------------SINA------------
+  
+
+  #记录分享和关注的返回记录
+  def share_log(type,con)
+    dir = "#{Rails.root}/public/log"
+    Dir.mkdir(dir)  unless File.directory?(dir)
+    file_path = dir+"/#{Time.now.strftime("%Y%m%d")}.txt"
+    if File.exists? file_path
+      file = File.open( file_path,"a")
+    else
+      file = File.new(file_path, "w")
+    end
+    file.puts "#{type}------#{con}----#{Time.now.strftime('%Y%m%d %H:%M:%S')}\r\n"
+    file.close
+  end
 end

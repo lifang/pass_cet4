@@ -103,13 +103,18 @@ function go_back(){
 function sent_to_album(score, current_type) {
     $.ajax({
         async:true,
+        type:'post',
+        dataType:'json',
+        url:"/images",
         data:{
             score :score,
             current_type : current_type
         },
-        dataType:'script',
-        url:"/images",
-        type:'post'
+        success : function (data){
+            $(".tab").css("display","");
+            setTimeout(function(){
+                $(".tab").css("display","none");
+            },3000)
+        }
     });
-    return false;
 }
