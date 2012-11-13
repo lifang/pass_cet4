@@ -1,7 +1,6 @@
 # encoding: utf-8
 module PercentsHelper
-  
-
+ 
   #公共方法加密url及生成签名：
   def signature_params(key,sign,url,method,secret)
     signature="#{method}&#{url_encoding(url)}&#{CGI.escape(sign)}"
@@ -38,31 +37,6 @@ module PercentsHelper
     return JSON back_res.body
   end
 
-  #人人网签名
-  def sig_renren(query)
-    str=""
-    query.sort.each{|key,value|str<<"#{key}=#{value}"}
-    str<<RENREN_API_SECRET
-    query[:sig]=Digest::MD5.hexdigest(str)
-    return query
-  end
-
  
 
-  #人人获取用户信息
-  def renren_get_user(access_token)
-    query = {:access_token => access_token,:format => 'JSON',:method => 'xiaonei.users.getInfo',:v => '1.0'}
-    response=create_post_http("http://api.renren.com","/restserver.do",sig_renren(query))
-  end
-  #
-  #人人发送新鲜事
-  def renren_send_message(access_token,message,other_parms=nil)
-    other_parms={:type=>"6",:url=>"http://www.gankao.co"} if other_parms.nil?
-    query = {:access_token => "#{access_token}",:comment=>"#{message}",:format => 'JSON',:method => 'share.share',:v => '1.0'}
-    query.merge!(other_parms)
-    response=create_post_http("http://api.renren.com","/restserver.do",sig_renren(query))
-    return response
-  end
-
-  
 end

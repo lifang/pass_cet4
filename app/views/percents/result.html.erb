@@ -1,10 +1,65 @@
-<% if cookies[:six] && cookies[:six]=="6"
+<div class="wrap">
+  <% if cookies[:six] && cookies[:six]=="6"
     @type_show = "六级"
     @type_num = "6"
+    action_link="http://apps.renren.com/check_cet"
+    app_id="216517"
   else
     @type_show = "四级"
     @type_num = "4"
+    action_link="http://apps.renren.com/pass_cet"
+    app_id="216516"
   end %>
-<h1 class="s_title">你的<%= @type_show %>过关机率为：</h1>
-<div class="end_box"><%= @score.to_s + "%" %></div>
-<a href="javascript:void(0)" onclick="javascript:sent_to_album('<%= @score.to_s + "%" %>', <%= @type_num %>)" class="up_btn">上传至相册</a>
+  <h1 class="s_title">你的<%= @type_show %>过关机率为：</h1>
+  <div class="end_box"><%= @score.to_s + "%" %></div>
+  <% if params[:web] == "renren" %>
+    <script type="text/javascript" src="/assets/renren.js"></script>
+    <a href="javascript:void(0)" onclick="javascript:sent_to_album('<%= @score.to_s + "%" %>', <%= @type_num %>)"  class="up_btn">上传至相册</a>
+    <script type="text/javascript">
+      var uiOpts = {
+        url : "request",
+        display : "iframe",
+        style : {
+          top : 40
+        },
+        params : {
+          "actiontext" : "邀请好友一起测英语<%= @type_show %>过关测试",
+          "app_msg" :"想知道能不能通过英语<%= @type_show %>吗？快来参加英语<%= @type_show %>过关测试吧？",
+          "app_id" : <%= app_id %>,
+          "redirect_uri" : "<%= Constant::SERVER_PATH %>/percents/next_step",
+          "accept_url" : '<%= action_link %>',
+          "accept_label" : "开始测试"
+        }
+      };
+      var root_flag = 0;
+      var rr=Renren.ui(uiOpts);
+
+      var feed;
+      function closeRedirect(){
+        rr.closeUI();
+        feed=Renren.ui({
+          url : 'feed',
+          display : 'iframe',
+          style : {
+            top : 100
+          },
+          params : {
+            "app_id" : "213858",
+            "name": "英语<%= @type_show %>过关测试",
+            "description" : "<%=cookies[:user_name]%>的英语<%= @type_show %>过关几率竟然只有<%= @score.to_s + "%"%>,<%= Constant::SCORE_LEVEL[@score/11] %>",
+            "url":'<%= action_link %>',
+            "image" : "<%= Constant::SERVER_PATH %>/share_<%= @type_num %>.jpg",
+            "message" : "快来测测你的【英语<%= @type_show %>过关几率】，谁测谁知道",
+            "redirect_uri" : "<%= Constant::SERVER_PATH %>/percents/next_upload",
+            "action_name" : "英语<%= @type_show %>过关测试",
+            "action_link" : '<%= action_link %>'
+          }
+        });
+      }
+      function new_closeRedirect(){
+        feed.closeUI();
+      }
+    </script>
+  <% end %>
+</div>
+<div class="tab" style="display:none">上传成功！</div>

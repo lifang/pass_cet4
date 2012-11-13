@@ -29,9 +29,9 @@ PassCet4::Application.routes.draw do
 
    resources :percents do
      collection do
-       get :check,:guanzhu, :questions, :result
+       get :check,:guanzhu, :questions, :result,:renren_url_generate6,:check6
        get :renren,:renren_url_generate,:renren_like,:close_window,:renren6,:renren8
-       get :sina,:next_step,:next_upload
+       get :sina,:next_step,:next_upload,:questions
        post :add_idol
        post :send_message
      end

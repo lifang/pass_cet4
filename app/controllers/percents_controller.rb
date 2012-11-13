@@ -3,12 +3,12 @@ class PercentsController < ApplicationController
   include PercentsHelper
   #人人测试应用访问路径 http://apps.renren.com/passcet   ,注: localhost:3000启动项目
 
-  @@renren_client_id = "189847"
-  @@renren_secret_key = "f3556085271d4590a9adab188fb2db65"
+  @@renren_client_id = "216516"
+  @@renren_secret_key = "15fcd9c3961642c38ece5e48c655adcf"
 
   #人人应用，嵌入首页
   def renren
-    cookies.delete(:six) unless cookies[:six].nil?
+    cookies[:six] ={:value =>"4", :path => "/", :secure  => false}
     @client_id = @@renren_client_id
     render :layout=>false
   end
@@ -23,12 +23,15 @@ class PercentsController < ApplicationController
     access_token = params["access_token"]
     web = params["web"]
     cookies[:access_token] = access_token if access_token
+    user_info = renren_get_user(access_token,@@renren_secret_key)[0]
+    share_log("renren test",user_info)
+    cookies[:user_name]=user_info["name"]
     puts " #{web}  --  #{cookies[:access_token]}  "
     redirect_to "/percents?web=#{web}"
   end
 
-  @@renren6_client_id = "196453"
-  @@renren6_secret_key = "a796bc292ddf457c84f097fd7ac6f579"
+  @@renren6_client_id = "216517"
+  @@renren6_secret_key = "7ca4354ed5ae498bb35c896da95704a6"
 
   #人人六级应用
   def renren6
@@ -37,6 +40,22 @@ class PercentsController < ApplicationController
     render :layout=>false
   end
 
+  #人人oauth2,回调地址中的"#"，替换为"?"
+  def renren_url_generate6
+    render :inline=>"<script type='text/javascript'>var p = window.location.href.split('#');var pr = p.length>1 ? p[1] : '';window.location.href = '/percents/check6?web=renren&'+pr;</script>"
+  end
+
+  #人人登录之后的回调页面,记录access_token,跳转到测试页
+  def check6
+    access_token = params["access_token"]
+    web = params["web"]
+    cookies[:access_token] = access_token if access_token
+    user_info = renren_get_user(access_token,@@renren6_secret_key)[0]
+    share_log("renren test",user_info)
+    cookies[:user_name]=user_info["name"]
+    puts " #{web}  --  #{cookies[:access_token]}  "
+    redirect_to "/percents?web=#{web}"
+  end
 
   @@renren8_client_id = "196777"
   @@renren8_secret_key = "79fb9cf508dd4751a1c3260ab57b43be"
@@ -127,13 +146,10 @@ class PercentsController < ApplicationController
   #结果
   def result
     @sum = params[:sum].to_i
-    messages = (cookies[:six] && cookies[:six]=="6") ? Constant::SCORE_LEVEL6 : Constant::SCORE_LEVEL
     if @sum == 4
       @score = rand(9)
-      @message = messages[0]
     else
       @score = ((@sum-4)/2).to_i*10 + 10 + rand(9)
-      @message = messages[(@sum-4)/2.to_i + 1]
     end
   end
 

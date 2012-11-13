@@ -13,7 +13,7 @@
   <% else %>
     <% if params[:web] == "renren"
       if cookies[:six] && cookies[:six]=="8"
-        score = @total_score * 10 + ((0..9).to_a)[rand(10)]        
+        score = @total_score * 10 + ((0..9).to_a)[rand(10)]
       else
         if @total_score == 6
           score = 424 + ((1..15).to_a)[rand(15)]
@@ -81,31 +81,31 @@
       var root_flag = 0;
       var rr=Renren.ui(uiOpts);
 
+      var feed;
       function closeRedirect(){
         rr.closeUI();
-        var uiOpts = {
-          url : "http://widget.renren.com/dialog/feed",
-          display : "iframe",
+        feed=Renren.ui({
+          url : 'feed',
+          display : 'iframe',
           params : {
             "app_id" : "213858",
             "name": "应用标题",
             "description" : "i want to know the title about content",
+            "url":'http://www.swimmingacross.com',
             "caption" : "let's go again",
             "image" : "http://www.gankao.co/skill.png",
             "message" : "so good a application",
             "redirect_uri" : "http://pass.gankao.co/percents/next_upload",
-            "accept_url" : "http://apps.renren.com/want_cet",
-            "accept_label" : "开始测分",
-            "display" : "iframe"
+            "action_name" : "四级测分器",
+            "action_link" : "http://www.gankao.co"
           }
-        };
-        root_flag = 0;
-        var new_con=Renren.ui(uiOpts);
+        });
 
-        function new_closeRedirect(){
-  <%#*new_con.closeUI();%>
-    }
-  }
+       
+      }
+      function new_closeRedirect(){
+        feed.closeUI();
+      }
     </script>
   <% else %>
     <div class="fs_btn_box">
